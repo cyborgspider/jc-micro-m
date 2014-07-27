@@ -1,8 +1,42 @@
 !!! 5
 html
   head
+    title JC &amp; Company
+    link(href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700", rel="stylesheet")
+    link(href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
+    link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
     link(href="css/styles.css", rel="stylesheet")
   body
-    h1 Hello, JC Microsite
+    nav
+      .container
+        a#logo(href="#") JC &amp; Company
+        ul.main-nav
+          li: a(href="#main-intro") Intro
+          li: a(href="#fbar") FBAR
+          li: a(href="#fatca") FATCA
+          li: a(href="#ovdp") OVDP
+          li: a(href="#streamlined") Streamlined
+          li: a(href="#disclosure") Quiet Disclosure
+
+    .container-fluid
+      include inc/intro
+
+    .container
+      include inc/second-intro
+      include inc/fbar
+      include inc/fatca
+      include inc/testimony
+      include inc/ovdp
+      include inc/streamlined
+      include inc/disclosure
+      include inc/contact
+
+    footer
+      .container 
+        p JC&amp;Company LLP - A full scope audit, tax, and advisory services firm with serious Big 4 experience.
+        p &copy; 2013 JC&amp;Company LLP. All rights reserved.
+
     script(src="http://code.jquery.com/jquery-2.0.3.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/jquery.velocity.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/velocity.ui.min.js")
     script(src="js/scripts.js")

@@ -17,7 +17,7 @@ module.exports =function(grunt){
           tasks:   ['stylus']
         },
         html:{
-          files:   ['site/*.jade'],
+          files:   ['site/*.jade', 'site/inc/*'],
           tasks:   ['jade']
         }
       },
@@ -49,7 +49,7 @@ module.exports =function(grunt){
             import:['nib']
           },
           files: {
-            'build/css/styles.css': ['site/styles/*.styl'] // compile and concat into single file
+            'build/css/styles.css': ['site/styles/styles.styl'] // compile and concat into single file
           }
         }
 

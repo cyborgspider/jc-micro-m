@@ -1,0 +1,41 @@
+#logo
+  background  url(../img/logo.png) no-repeat
+  width       186px
+  height      45px
+  display     block
+  text-indent -9999px
+  float       left
+  margin      18px 0 0
+
+nav
+  background rgba($blue-dark, 0.5)
+  height     75px
+  transition background 0.2s ease-in-out
+  position   fixed
+  top        0
+  left       0
+  right      0
+  z-index    10
+
+  &:hover
+    background rgba($blue-dark, 0.8)
+
+.main-nav
+  float  right
+  margin 28px 0 0 
+
+  & > li
+    display      inline-block
+    margin-right 40px
+
+    &:last-child
+      margin-right 0
+
+    & > a
+      color           $blue-gray
+      text-transform  uppercase
+      text-decoration none
+
+      &:hover
+      &.active
+        color #fff
