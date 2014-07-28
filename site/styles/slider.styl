@@ -1,0 +1,28 @@
+.slider
+  position relative
+
+  & > p
+    position absolute
+    opacity  0
+    transition opacity 0.8s
+
+    &.active
+      opacity 1
+
+.slider-index
+  padding 70px 0 0
+
+  & > li
+    background   #002344
+    cursor       pointer
+    display      inline-block
+    height       8px
+    margin-right 11px
+    width        45px
+
+    &:hover
+    &.active
+      background #fff
+
+    #main-intro-slider > &
+      margin-top 20px

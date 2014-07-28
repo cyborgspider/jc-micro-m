@@ -7,25 +7,15 @@ html
     link(href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", rel="stylesheet")
     link(href="css/styles.css", rel="stylesheet")
   body
-    nav
-      .container
-        a#logo(href="#") JC &amp; Company
-        ul.main-nav
-          li: a(href="#main-intro") Intro
-          li: a(href="#fbar") FBAR
-          li: a(href="#fatca") FATCA
-          li: a(href="#ovdp") OVDP
-          li: a(href="#streamlined") Streamlined
-          li: a(href="#disclosure") Quiet Disclosure
+    include inc/nav
 
     .container-fluid
-      include inc/intro
+      include inc/home
 
     .container
       include inc/second-intro
       include inc/fbar
       include inc/fatca
-      include inc/testimony
       include inc/ovdp
       include inc/streamlined
       include inc/disclosure
@@ -37,6 +27,7 @@ html
         p &copy; 2013 JC&amp;Company LLP. All rights reserved.
 
     script(src="http://code.jquery.com/jquery-2.0.3.min.js")
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js")      
     script(src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/jquery.velocity.min.js")
     script(src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/velocity.ui.min.js")
     script(src="js/scripts.js")
