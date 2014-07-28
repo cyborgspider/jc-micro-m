@@ -1,10 +1,11 @@
 nav
   .container
     a#logo.active(href="#home") JC &amp; Company
-    ul.main-nav
-      li: a(href="#intro") Intro
-      li: a(href="#fbar") FBAR
-      li: a(href="#fatca") FATCA
-      li: a(href="#ovdp") OVDP
-      li: a(href="#streamlined") Streamlined
-      li: a(href="#disclosure") Quiet Disclosure
+    #main-nav
+      ul.nav
+        li: a(href="#intro", data-target="#intro") Intro
+        li: a(href="#fbar", data-target="#fbar") FBAR
+        li: a(href="#fatca", data-target="#fatca") FATCA
+        li: a(href="#ovdp", data-target="#ovdp") OVDP
+        li: a(href="#streamlined", data-target="#streamlined") Streamlined
+        li: a(href="#disclosure", data-target="#disclosure") Quiet Disclosure

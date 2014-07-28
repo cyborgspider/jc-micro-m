@@ -4,24 +4,26 @@
     <title>JC &amp; Company</title>
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
     <nav>
       <div class="container"><a id="logo" href="#home" class="active">JC &amp; Company</a>
-        <ul class="main-nav">
-          <li><a href="#intro">Intro</a></li>
-          <li><a href="#fbar">FBAR</a></li>
-          <li><a href="#fatca">FATCA</a></li>
-          <li><a href="#ovdp">OVDP</a></li>
-          <li><a href="#streamlined">Streamlined</a></li>
-          <li><a href="#disclosure">Quiet Disclosure</a></li>
-        </ul>
+        <div id="main-nav">
+          <ul class="nav">
+            <li><a href="#intro" data-target="#intro">Intro</a></li>
+            <li><a href="#fbar" data-target="#fbar">FBAR</a></li>
+            <li><a href="#fatca" data-target="#fatca">FATCA</a></li>
+            <li><a href="#ovdp" data-target="#ovdp">OVDP</a></li>
+            <li><a href="#streamlined" data-target="#streamlined">Streamlined</a></li>
+            <li><a href="#disclosure" data-target="#disclosure">Quiet Disclosure</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container-fluid">
-      <div id="home">
+      <div id="home" class="section">
         <div id="main-intro-wrap">
           <div id="main-intro-header">
             <h1>As a trusted U.S. law firm...</h1>
@@ -48,7 +50,7 @@
       </div>
     </div>
     <div class="container">
-      <div id="intro" class="section text-center">
+      <div id="intro" class="section">
         <ul class="slider-index">
           <li></li>
           <li></li>
@@ -306,9 +308,9 @@
       </div>
     </footer>
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js">     </script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/jquery.velocity.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/velocity.ui.min.js"></script>
+    <script src="js/bootstrap.min.js">     </script>
     <script src="js/scripts.js"></script>
   </body>
 </html>

@@ -2,11 +2,17 @@
   var animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider;
 
   pageLoad = function() {
-    return $('html,body').velocity('scroll', {
-      complete: function() {
-        return animateMainIntroHeader();
-      }
+    var hashId;
+    hashId = window.location.hash;
+    if (hashId !== '#home') {
+      $('.nav').find('a[href="' + hashId + '"]').click();
+    } else {
+      $('html,body').velocity('scroll');
+    }
+    $('body').scrollspy({
+      target: '#main-nav'
     });
+    return animateMainIntroHeader();
   };
 
   animateMainIntroHeader = function() {
@@ -38,15 +44,14 @@
     });
   };
 
-  links = $('.main-nav').find('a');
+  links = $('.nav').find('a');
 
-  $('.main-nav').on('click', 'a', function(e) {
+  $('.nav').on('click', 'a', function(e) {
     var section;
     section = $(this).attr('href');
     e.preventDefault();
     $(section).velocity('scroll');
-    links.removeClass('active');
-    return $(this).addClass('active');
+    return window.location.hash = section;
   });
 
   startSlider = function($container) {
@@ -76,18 +81,6 @@
     $slideIndexContainer.on('click', 'li', gotoSlide);
     return setInterval(autoSlide, 3000);
   };
-
-  $('.section').waypoint(function() {
-    var sectionId;
-    sectionId = $(this).attr('id');
-    $('#logo').removeClass('active');
-    links.removeClass('active');
-    return $('.main-nav').find('a[href="#' + sectionId + '"]').addClass('active');
-  });
-
-  $('#home').waypoint(function() {
-    return $('#logo').addClass('active');
-  });
 
   pageLoad();
 

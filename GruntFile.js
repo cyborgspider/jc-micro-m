@@ -37,10 +37,11 @@ module.exports =function(grunt){
       },
       copy: {
         main: {
-          expand: true,
-          cwd: 'site/images',
-          src: '*',
-          dest: 'build/img'
+          files: [
+            {expand: true, cwd: 'site/images', src: '*', dest: 'build/img'},
+            {expand: true, cwd: 'site/lib/css', src: '*', dest: 'build/css'},
+            {expand: true, cwd: 'site/lib/js', src: '*', dest: 'build/js'}
+          ]
         },
       },
       stylus:{

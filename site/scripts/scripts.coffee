@@ -1,12 +1,20 @@
 #Place all functions to init the page inside pageLoad
 pageLoad = ->
   #If a user is at the bottom of the page and refreshes, scroll back to the top and start all animations
-  $('html,body').velocity(
-    'scroll'
-    ,
-      complete: ->
-        animateMainIntroHeader()
+  hashId = window.location.hash
+
+  if hashId != '#home'
+    $('.nav').find('a[href="'+hashId+'"]').click()
+    
+  else
+    $('html,body').velocity 'scroll'
+
+  $('body').scrollspy(
+    target : '#main-nav'
   )
+
+  animateMainIntroHeader()  
+
 
 #Place animations inside functions to call them using Velocity callbacks
 animateMainIntroHeader = ->
@@ -38,14 +46,13 @@ animateIntroSlider = ->
 
 
 #Handle navigation
-links    = $('.main-nav').find('a')
+links = $('.nav').find('a')
 
-$('.main-nav').on 'click', 'a', (e) ->
+$('.nav').on 'click', 'a', (e) ->
   section = $(@).attr('href')
   e.preventDefault()
   $(section).velocity 'scroll'
-  links.removeClass 'active'
-  $(@).addClass 'active'
+  window.location.hash = section
 
 
 #Slider
@@ -82,17 +89,20 @@ startSlider = ($container) ->
   setInterval(autoSlide, 3000)
 
 #Waypoints
+#This didn't work very well. TODO: Make it better, I still prefer over ScrollSpy
 #http://imakewebthings.com/jquery-waypoints/#get-started
-$('.section').waypoint ->
-  sectionId = $(@).attr('id')
-  $('#logo').removeClass 'active'
-  links.removeClass 'active'
+# $('.section').waypoint
+#   handler: ->
+#     sectionId = $(@).attr('id')
+#     $('#logo').removeClass 'active'
+#     links.removeClass 'active'
 
-  #Find out why I can't use the global variable I set earlier (links)
-  $('.main-nav').find('a[href="#'+sectionId+'"]').addClass('active')
+#     #Find out why I can't use the global variable I set earlier (links)
+#     $('nav').find('a[href="#'+sectionId+'"]').addClass('active')
+#     window.location.hash = sectionId
+  
+#   continuous: false
 
-$('#home').waypoint ->
-  $('#logo').addClass 'active'
 
 #Page Load (init)
 pageLoad()
