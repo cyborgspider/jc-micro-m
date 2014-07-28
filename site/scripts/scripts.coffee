@@ -14,6 +14,7 @@ pageLoad = ->
   )
 
   animateMainIntroHeader()  
+  startSlider($('#intro-slider'))
 
 
 #Place animations inside functions to call them using Velocity callbacks
@@ -58,7 +59,7 @@ $('.nav').on 'click', 'a', (e) ->
 #Slider
 startSlider = ($container) ->
   $slideIndexContainer = $container.find('.slider-index')
-  $slides              = $container.find('p')
+  $slides              = $container.find('.slide')
   $slidesLength        = $slides.length
   i                    = 1
 

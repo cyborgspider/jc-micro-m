@@ -12,7 +12,8 @@
     $('body').scrollspy({
       target: '#main-nav'
     });
-    return animateMainIntroHeader();
+    animateMainIntroHeader();
+    return startSlider($('#intro-slider'));
   };
 
   animateMainIntroHeader = function() {
@@ -57,7 +58,7 @@
   startSlider = function($container) {
     var $slideIndexContainer, $slides, $slidesLength, autoSlide, gotoSlide, i;
     $slideIndexContainer = $container.find('.slider-index');
-    $slides = $container.find('p');
+    $slides = $container.find('.slide');
     $slidesLength = $slides.length;
     i = 1;
     gotoSlide = function($slideIndex) {

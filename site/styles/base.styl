@@ -12,8 +12,15 @@ body
 .container-fluid
   padding 0
 
+  &.split-bg-color
+    background linear-gradient(to right, $blue-main-dark 50%, #004687 50%)
+
+  &.split-bg-color-alt
+    background linear-gradient(to right, #004687 50%, $blue-main-dark 50%)    
+
 .section
   clear both
+  clearfix()
 
   &:before
     content    ''

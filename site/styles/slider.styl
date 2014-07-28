@@ -1,16 +1,20 @@
 .slider
   position relative
 
-  & > p
-    position absolute
-    opacity  0
-    transition opacity 0.8s
+.slide
+  position absolute
+  opacity  0
+  transition opacity 0.8s
 
-    &.active
-      opacity 1
+  &.active
+    opacity 1
+
+  #intro-slider &
+    width       760px
+    left        50%
+    margin-left -(@width/2)
 
 .slider-index
-  padding 70px 0 0
 
   & > li
     background   #002344
@@ -25,4 +29,4 @@
       background #fff
 
     #main-intro-slider > &
-      margin-top 20px
+      margin-top 90px
