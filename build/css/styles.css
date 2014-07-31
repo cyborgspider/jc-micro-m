@@ -11,8 +11,8 @@ h1,h2,h3{font-weight:700}
 #fbar h1,#fatca h1,#ovdp h1,#streamlined h1,#disclosure h1{font-size:72px}
 #fbar h2,#fatca h2,#ovdp h2,#streamlined h2,#disclosure h2{font-size:18px;padding-left:12px;border-left:3px solid #fff}
 #fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3{font-size:24px}
-#logo{background:url("../img/logo.png") no-repeat;width:186px;height:45px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
-#logo.active{background-position:0 100%}
+#logo{background:url("../img/logo.png") no-repeat;width:194px;height:39px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
+#logo.active,#logo:hover{background-position:0 100%}
 nav{background:rgba(0,39,75,0.5);height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10;}
 nav:hover{background:rgba(0,39,75,0.8)}
 #main-nav{float:right;margin:28px 0 0;}
