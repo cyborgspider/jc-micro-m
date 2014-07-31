@@ -1,19 +1,21 @@
 (function() {
-  var animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider;
+  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider;
 
   pageLoad = function() {
-    var hashId;
-    hashId = window.location.hash;
-    if (hashId !== '#home') {
-      $('.nav').find('a[href="' + hashId + '"]').click();
-    } else {
-      $('html,body').velocity('scroll');
-    }
-    $('body').scrollspy({
-      target: '#main-nav'
-    });
-    animateMainIntroHeader();
+    animateHeroBG();
     return startSlider($('#intro-slider'));
+  };
+
+  animateHeroBG = function() {
+    return $('#home').velocity({
+      'backgroundPositionY': '60%'
+    }, {
+      duration: 800,
+      easing: 'ease-out',
+      complete: function() {
+        return animateMainIntroHeader();
+      }
+    });
   };
 
   animateMainIntroHeader = function() {

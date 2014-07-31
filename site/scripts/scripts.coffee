@@ -1,23 +1,33 @@
 #Place all functions to init the page inside pageLoad
 pageLoad = ->
   #If a user is at the bottom of the page and refreshes, scroll back to the top and start all animations
-  hashId = window.location.hash
+  #hashId = window.location.hash
 
-  if hashId != '#home'
-    $('.nav').find('a[href="'+hashId+'"]').click()
+  # if hashId != '#home'
+  #   $('.nav').find('a[href="'+hashId+'"]').click()
     
-  else
-    $('html,body').velocity 'scroll'
+  # else
+  #   $('html,body').velocity 'scroll'
 
-  $('body').scrollspy(
-    target : '#main-nav'
-  )
+  # $('body').scrollspy(
+  #   target : '#main-nav'
+  # )
 
-  animateMainIntroHeader()  
+  animateHeroBG()  
   startSlider($('#intro-slider'))
 
 
 #Place animations inside functions to call them using Velocity callbacks
+animateHeroBG = ->
+  $('#home').velocity(
+    'backgroundPositionY':'60%'
+  ,
+    duration: 800
+    easing:   'ease-out'
+    complete: ->
+      animateMainIntroHeader()
+  )
+
 animateMainIntroHeader = ->
   $('#main-intro-header').velocity(
     'transition.slideLeftBigIn'
@@ -25,7 +35,7 @@ animateMainIntroHeader = ->
       duration: 800
       complete: ->
         animateIntroBar()
-  )
+  )  
 
 animateIntroBar = ->
   $('#main-intro-bar').velocity(
