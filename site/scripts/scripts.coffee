@@ -9,9 +9,9 @@ pageLoad = ->
   # else
   #   $('html,body').velocity 'scroll'
 
-  # $('body').scrollspy(
-  #   target : '#main-nav'
-  # )
+  $('body').scrollspy(
+    target : '#main-nav'
+  )
 
   animateHeroBG()  
   startSlider($('#intro-slider'))
@@ -63,7 +63,7 @@ $('.nav').on 'click', 'a', (e) ->
   section = $(@).attr('href')
   e.preventDefault()
   $(section).velocity 'scroll'
-  window.location.hash = section
+  #window.location.hash = section
 
 
 #Slider

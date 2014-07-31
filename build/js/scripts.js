@@ -2,6 +2,9 @@
   var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider;
 
   pageLoad = function() {
+    $('body').scrollspy({
+      target: '#main-nav'
+    });
     animateHeroBG();
     return startSlider($('#intro-slider'));
   };
@@ -53,8 +56,7 @@
     var section;
     section = $(this).attr('href');
     e.preventDefault();
-    $(section).velocity('scroll');
-    return window.location.hash = section;
+    return $(section).velocity('scroll');
   });
 
   startSlider = function($container) {
