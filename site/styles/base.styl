@@ -2,7 +2,7 @@ body
   -webkit-font-smoothing antialiased
   background             $blue-main
   color                  #fff
-  font                   16px "Source Sans Pro", "Arial", sans-serif
+  font                   16px/1.5 "Source Sans Pro", "Arial", sans-serif
   font-weight            400
   position               relative
 
@@ -12,14 +12,47 @@ body
 .container-fluid
   padding 0
 
-  &.split-bg-color
-    background linear-gradient(to right, $blue-main-dark 50%, #004687 50%)
+.bg-dark
+  background #001f3c
+  padding    55px 0
+  height     330px
 
-  &.split-bg-color-alt
-    background linear-gradient(to right, #004687 50%, $blue-main-dark 50%)
+.bg-split
+  background url(../img/bg-split.png) repeat-y top center
 
-  &.bg-intro
-    background url(../img/bg-intro.jpg) top center no-repeat
+.bg-split-alt
+  background url(../img/bg-split-alt.png) repeat-y top center  
+
+.bg-intro
+  background url(../img/bg-intro.jpg) top center no-repeat
+
+.bg-fbar
+  background url(../img/bg-fbar.jpg) top center no-repeat  
+  height     336px  
+
+.bg-fatca
+  background url(../img/bg-fatca.jpg) top center no-repeat 
+  height     336px
+
+.bg-disclosure
+  background url(../img/bg-disclosure.jpg) top center no-repeat   
+  height     412px
+
+.content
+  padding 40px 0 50px 0
+  &.left
+    padding-right 44px
+  &.right
+    padding-left 44px
+
+  #fatca &
+    padding-top 80px
+  #fbar &
+    padding-top 60px
+  #ovdp &
+    padding-top    80px
+    padding-bottom 80px
+    
 
 .section
   clear both

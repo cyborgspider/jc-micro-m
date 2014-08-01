@@ -1,16 +1,34 @@
-body{-webkit-font-smoothing:antialiased;background:#004e96;color:#fff;font:16px "Source Sans Pro","Arial",sans-serif;font-weight:400;position:relative}
+body{-webkit-font-smoothing:antialiased;background:#004e96;color:#fff;font:16px/1.5 "Source Sans Pro","Arial",sans-serif;font-weight:400;position:relative}
 .container{width:980px}
-.container-fluid{padding:0;}
-.container-fluid.split-bg-color{background:-webkit-linear-gradient(left, #003669 50%, #004687 50%);background:-moz-linear-gradient(left, #003669 50%, #004687 50%);background:-o-linear-gradient(left, #003669 50%, #004687 50%);background:-ms-linear-gradient(left, #003669 50%, #004687 50%);background:linear-gradient(to right, #003669 50%, #004687 50%)}
-.container-fluid.split-bg-color-alt{background:-webkit-linear-gradient(left, #004687 50%, #003669 50%);background:-moz-linear-gradient(left, #004687 50%, #003669 50%);background:-o-linear-gradient(left, #004687 50%, #003669 50%);background:-ms-linear-gradient(left, #004687 50%, #003669 50%);background:linear-gradient(to right, #004687 50%, #003669 50%)}
-.container-fluid.bg-intro{background:url("../img/bg-intro.jpg") top center no-repeat}
+.container-fluid{padding:0}
+.bg-dark{background:#001f3c;padding:55px 0;height:330px}
+.bg-split{background:url("../img/bg-split.png") repeat-y top center}
+.bg-split-alt{background:url("../img/bg-split-alt.png") repeat-y top center}
+.bg-intro{background:url("../img/bg-intro.jpg") top center no-repeat}
+.bg-fbar{background:url("../img/bg-fbar.jpg") top center no-repeat;height:336px}
+.bg-fatca{background:url("../img/bg-fatca.jpg") top center no-repeat;height:336px}
+.bg-disclosure{background:url("../img/bg-disclosure.jpg") top center no-repeat;height:412px}
+.content{padding:40px 0 50px 0;}
+.content.left{padding-right:44px}
+.content.right{padding-left:44px}
+#fatca .content{padding-top:80px}
+#fbar .content{padding-top:60px}
+#ovdp .content{padding-top:80px;padding-bottom:80px}
 .section{clear:both;zoom:1}
 .section:before,.section:after{content:"";display:table}
 .section:after{clear:both}
 h1,h2,h3{font-weight:700;margin:0}
-#fbar h1,#fatca h1,#ovdp h1,#streamlined h1,#disclosure h1{font-size:72px}
-#fbar h2,#fatca h2,#ovdp h2,#streamlined h2,#disclosure h2{font-size:18px;padding-left:12px;border-left:3px solid #fff}
-#fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3{font-size:24px}
+.mb10{margin-bottom:8px}
+.mb20{margin-bottom:18px}
+.mb30{margin-bottom:28px}
+.mb40{margin-bottom:38px}
+.list{list-style-image:url("../img/bullet.png");margin:0;padding:0 0 0 1.2em;}
+.list li{margin-bottom:12px}
+.small{color:#9b9b9b;font-size:14px;font-style:italic}
+.strong{color:#2a97ff;font-weight:bold}
+#fbar h1,#fatca h1,#ovdp h1,#streamlined h1,#disclosure h1,#contact h1{font-size:72px;margin-bottom:12px}
+#fbar h2,#fatca h2,#ovdp h2,#streamlined h2,#disclosure h2,#contact h2{font-size:18px;padding-left:12px;border-left:3px solid #fff;margin-bottom:18px}
+#fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3,#contact h3{font-size:24px}
 #logo{background:url("../img/logo.png") no-repeat;width:194px;height:39px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
 #logo.active,#logo:hover{background-position:0 100%}
 nav{background:rgba(0,39,75,0.5);height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10;}
@@ -47,3 +65,8 @@ nav:hover{background:rgba(0,39,75,0.8)}
 #main-intro-slider > .slider-index > li{margin-top:90px}
 .btn{display:inline-block;background:#00172c;border:1px solid #0075e1;color:#0075e1;padding:0 24px;line-height:35px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;vertical-align:middle;}
 .btn:hover{color:#fff;background:#004e96;border-color:#fff}
+.quote{max-width:760px;margin:0 auto;text-align:center;color:#0083fc}
+.quote-text{font:italic 18px/32px 'Georgia',serif;position:relative;padding:30px 0;margin-bottom:50px;}
+.quote-text:before{content:"\201C";font-size:92px;position:absolute;top:0;margin-left:-24px;left:50%}
+.quote-text:after{content:"\201D";font-size:92px;position:absolute;bottom:-60px;margin-left:-24px;left:50%}
+.quote-attr{font-style:italic;font-weight:700;font-size:20px}
