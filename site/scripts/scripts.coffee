@@ -16,6 +16,51 @@ pageLoad = ->
   animateHeroBG()  
   startSlider($('#intro-slider'))
 
+  $('.btn-question').hover ->
+    $(@).text 'Contact Us'
+  , ->
+    $(@).text 'Question?'
+
+  $('.btn-question').click ->
+    $('#contact').velocity 'scroll'
+
+  startTestimony()
+
+#Testimony Transitions
+startTestimony = () ->
+  $container    = $('.quote-slider')
+  $quoteArrow   = $container.find('.quote-arrow')
+  $quotes       = $container.find('.quote')
+  $quotesLength = $quotes.length
+  i             = 0
+
+  gotoQuote = (direction) ->
+    if direction is 'forward'
+      i++
+      if i == $quotes.length
+        i = 0
+    if direction is 'back'
+      i--
+      if i < 0
+        i = $quotes.length-1
+
+    $quotes.removeClass 'active'
+    $quotes.eq(i).addClass 'active'
+
+  autoSlide = ->
+    if i <= $quotes.length
+      gotoQuote('forward')
+
+  $quoteArrow.on 'click', ->
+    direction = $(@).data('direction')
+    #clearInterval(timer)
+
+    if direction is 'forward'
+      gotoQuote('forward')
+    else 
+      gotoQuote('back')
+
+  timer = setInterval(autoSlide, 3000)
 
 #Place animations inside functions to call them using Velocity callbacks
 animateHeroBG = ->

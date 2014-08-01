@@ -1,14 +1,27 @@
+.quote-slider
+  position  relative
+  max-width 720px
+  margin    0 auto
+
 .quote
-  max-width  760px
-  margin     0 auto
   text-align center
-  color $blue-text
+  color      $blue-text
+  position   absolute
+
+  &.active
+    .quote-text
+    .quote-attr
+      opacity 1
+
 
 .quote-text
   font          italic 18px/32px 'Georgia', serif
   position      relative
   padding       30px 0
-  margin-bottom 50px
+  margin-bottom 40px
+  opacity       0
+  top           0
+  transition    opacity 0.4s ease-in
 
   &:before
     content     "\201C"
@@ -26,7 +39,32 @@
     margin-left -24px 
     left        50% 
 
- .quote-attr
+.quote-attr
    font-style  italic
    font-weight 700
    font-size   20px
+   opacity     0
+   transition  opacity 0.4s ease-in
+   position    relative
+   bottom      0
+   text-align  center
+
+.quote-arrow
+  position   absolute
+  width      60px
+  height     117px
+  background url(../img/quote-arrows.png) no-repeat
+  top        45px 
+  cursor     pointer
+
+  &.left
+    left -120px
+    background-position -120px 0
+    &:hover
+      background-position -180px 0
+
+  &.right 
+    right -120px
+    background-position 0 0
+    &:hover
+      background-position -60px 0

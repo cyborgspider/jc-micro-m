@@ -31,8 +31,7 @@ h1,h2,h3{font-weight:700;margin:0}
 #fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3,#contact h3{font-size:24px}
 #logo{background:url("../img/logo.png") no-repeat;width:194px;height:39px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
 #logo.active,#logo:hover{background-position:0 100%}
-nav{background:rgba(0,39,75,0.5);height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10;}
-nav:hover{background:rgba(0,39,75,0.8)}
+nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10}
 #main-nav{float:right;margin:28px 0 0;}
 #main-nav > .nav{margin:0;padding:0;}
 #main-nav > .nav > li{display:inline-block;margin-right:40px;}
@@ -63,10 +62,18 @@ nav:hover{background:rgba(0,39,75,0.8)}
 .slider-index > li{background:#002344;cursor:pointer;display:inline-block;height:8px;margin-right:11px;width:45px;}
 .slider-index > li:hover,.slider-index > li.active{background:#fff}
 #main-intro-slider > .slider-index > li{margin-top:90px}
-.btn{display:inline-block;background:#00172c;border:1px solid #0075e1;color:#0075e1;padding:0 24px;line-height:35px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;vertical-align:middle;}
-.btn:hover{color:#fff;background:#004e96;border-color:#fff}
-.quote{max-width:760px;margin:0 auto;text-align:center;color:#0083fc}
-.quote-text{font:italic 18px/32px 'Georgia',serif;position:relative;padding:30px 0;margin-bottom:50px;}
+.btn{display:inline-block;background:transparent;border:1px solid #fff;color:#fff;padding:0 24px;line-height:35px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;vertical-align:middle;}
+.btn:hover{color:#0075e1;border-color:#0075e1;background:#00172c}
+.btn.btn-question{width:130px}
+.quote-slider{position:relative;max-width:720px;margin:0 auto}
+.quote{text-align:center;color:#0083fc;position:absolute;}
+.quote.active .quote-text,.quote.active .quote-attr{opacity:1;-ms-filter:none;filter:none}
+.quote-text{font:italic 18px/32px 'Georgia',serif;position:relative;padding:30px 0;margin-bottom:40px;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);top:0;-webkit-transition:opacity 0.4s ease-in;-moz-transition:opacity 0.4s ease-in;-o-transition:opacity 0.4s ease-in;-ms-transition:opacity 0.4s ease-in;transition:opacity 0.4s ease-in;}
 .quote-text:before{content:"\201C";font-size:92px;position:absolute;top:0;margin-left:-24px;left:50%}
 .quote-text:after{content:"\201D";font-size:92px;position:absolute;bottom:-60px;margin-left:-24px;left:50%}
-.quote-attr{font-style:italic;font-weight:700;font-size:20px}
+.quote-attr{font-style:italic;font-weight:700;font-size:20px;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-transition:opacity 0.4s ease-in;-moz-transition:opacity 0.4s ease-in;-o-transition:opacity 0.4s ease-in;-ms-transition:opacity 0.4s ease-in;transition:opacity 0.4s ease-in;position:relative;bottom:0;text-align:center}
+.quote-arrow{position:absolute;width:60px;height:117px;background:url("../img/quote-arrows.png") no-repeat;top:45px;cursor:pointer;}
+.quote-arrow.left{left:-120px;background-position:-120px 0;}
+.quote-arrow.left:hover{background-position:-180px 0}
+.quote-arrow.right{right:-120px;background-position:0 0;}
+.quote-arrow.right:hover{background-position:-60px 0}

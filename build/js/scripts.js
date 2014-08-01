@@ -1,12 +1,61 @@
 (function() {
-  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider;
+  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider, startTestimony;
 
   pageLoad = function() {
     $('body').scrollspy({
       target: '#main-nav'
     });
     animateHeroBG();
-    return startSlider($('#intro-slider'));
+    startSlider($('#intro-slider'));
+    $('.btn-question').hover(function() {
+      return $(this).text('Contact Us');
+    }, function() {
+      return $(this).text('Question?');
+    });
+    $('.btn-question').click(function() {
+      return $('#contact').velocity('scroll');
+    });
+    return startTestimony();
+  };
+
+  startTestimony = function() {
+    var $container, $quoteArrow, $quotes, $quotesLength, autoSlide, gotoQuote, i, timer;
+    $container = $('.quote-slider');
+    $quoteArrow = $container.find('.quote-arrow');
+    $quotes = $container.find('.quote');
+    $quotesLength = $quotes.length;
+    i = 0;
+    gotoQuote = function(direction) {
+      if (direction === 'forward') {
+        i++;
+        if (i === $quotes.length) {
+          i = 0;
+        }
+      }
+      if (direction === 'back') {
+        i--;
+        if (i < 0) {
+          i = $quotes.length - 1;
+        }
+      }
+      $quotes.removeClass('active');
+      return $quotes.eq(i).addClass('active');
+    };
+    autoSlide = function() {
+      if (i <= $quotes.length) {
+        return gotoQuote('forward');
+      }
+    };
+    $quoteArrow.on('click', function() {
+      var direction;
+      direction = $(this).data('direction');
+      if (direction === 'forward') {
+        return gotoQuote('forward');
+      } else {
+        return gotoQuote('back');
+      }
+    });
+    return timer = setInterval(autoSlide, 3000);
   };
 
   animateHeroBG = function() {
