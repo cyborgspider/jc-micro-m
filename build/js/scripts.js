@@ -1,24 +1,25 @@
 (function() {
-  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, startSlider, startTestimony;
+  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, questionButton, slideTestimony, startSlider;
 
   pageLoad = function() {
     $('body').scrollspy({
       target: '#main-nav'
     });
+    $('#home').height($(window).height());
     animateHeroBG();
-    startSlider($('#intro-slider'));
-    $('.btn-question').hover(function() {
-      return $(this).text('Contact Us');
-    }, function() {
-      return $(this).text('Question?');
-    });
-    $('.btn-question').click(function() {
-      return $('#contact').velocity('scroll');
-    });
-    return startTestimony();
+    return slideTestimony();
   };
 
-  startTestimony = function() {
+  $(window).scroll(function() {
+    console.log('scrolling');
+    if ($(window).scrollTop() > 0) {
+      return $('nav').removeClass('top');
+    } else {
+      return $('nav').addClass('top');
+    }
+  });
+
+  slideTestimony = function() {
     var $container, $quoteArrow, $quotes, $quotesLength, autoSlide, gotoQuote, i, timer;
     $container = $('.quote-slider');
     $quoteArrow = $container.find('.quote-arrow');
@@ -60,7 +61,7 @@
 
   animateHeroBG = function() {
     return $('#home').velocity({
-      'backgroundPositionY': '60%'
+      'opacity': '1'
     }, {
       duration: 800,
       easing: 'ease-out',
@@ -106,6 +107,16 @@
     section = $(this).attr('href');
     e.preventDefault();
     return $(section).velocity('scroll');
+  });
+
+  questionButton = $('.btn-question');
+
+  questionButton.hover(function() {
+    return $(this).text('Contact Us');
+  }, function() {
+    return $(this).text('Question?');
+  }).click(function() {
+    return $('#contact').velocity('scroll');
   });
 
   startSlider = function($container) {

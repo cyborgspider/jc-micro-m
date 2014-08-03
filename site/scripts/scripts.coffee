@@ -12,22 +12,22 @@ pageLoad = ->
   $('body').scrollspy(
     target : '#main-nav'
   )
-
+  
+  $('#home').height($(window).height())
   animateHeroBG()  
-  startSlider($('#intro-slider'))
+  slideTestimony()
 
-  $('.btn-question').hover ->
-    $(@).text 'Contact Us'
-  , ->
-    $(@).text 'Question?'
 
-  $('.btn-question').click ->
-    $('#contact').velocity 'scroll'
+$(window).scroll ->
+  console.log 'scrolling'
+  if $(window).scrollTop() > 0
+    $('nav').removeClass 'top'
+  else
+    $('nav').addClass 'top'
 
-  startTestimony()
 
 #Testimony Transitions
-startTestimony = () ->
+slideTestimony = () ->
   $container    = $('.quote-slider')
   $quoteArrow   = $container.find('.quote-arrow')
   $quotes       = $container.find('.quote')
@@ -54,6 +54,7 @@ startTestimony = () ->
   $quoteArrow.on 'click', ->
     direction = $(@).data('direction')
     #clearInterval(timer)
+    #timer = setInterval(autoSlide, 3000)
 
     if direction is 'forward'
       gotoQuote('forward')
@@ -65,7 +66,7 @@ startTestimony = () ->
 #Place animations inside functions to call them using Velocity callbacks
 animateHeroBG = ->
   $('#home').velocity(
-    'backgroundPositionY':'60%'
+    'opacity':'1'
   ,
     duration: 800
     easing:   'ease-out'
@@ -110,6 +111,16 @@ $('.nav').on 'click', 'a', (e) ->
   $(section).velocity 'scroll'
   #window.location.hash = section
 
+#Contact Buttons 
+questionButton = $('.btn-question')
+
+questionButton.hover(->
+  $(@).text 'Contact Us'
+, ->
+  $(@).text 'Question?'
+).click ->
+  $('#contact').velocity 'scroll'  
+
 
 #Slider
 startSlider = ($container) ->
@@ -117,7 +128,6 @@ startSlider = ($container) ->
   $slides              = $container.find('.slide')
   $slidesLength        = $slides.length
   i                    = 1
-
 
   gotoSlide = ($slideIndex) ->
     $this       = $(@)
@@ -139,7 +149,6 @@ startSlider = ($container) ->
     #At the end of the slideshow, reset to the first slide
     else if i = $slidesLength
       i = 0
-
 
   $slideIndexContainer.on 'click', 'li', gotoSlide
   setInterval(autoSlide, 3000)

@@ -1,3 +1,10 @@
+.top-bar
+  height      30px
+  line-height 30px
+  a
+    color #fff
+    float right
+
 #logo
   background  url(../img/logo.png) no-repeat
   width       194px
@@ -20,6 +27,10 @@ nav
   left       0
   right      0
   z-index    10
+  transition top 0.4s ease-out
+
+  &.top
+    top 30px
 
 #main-nav
   float  right

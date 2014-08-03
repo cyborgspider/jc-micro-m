@@ -29,16 +29,19 @@ h1,h2,h3{font-weight:700;margin:0}
 #fbar h1,#fatca h1,#ovdp h1,#streamlined h1,#disclosure h1,#contact h1{font-size:72px;margin-bottom:12px}
 #fbar h2,#fatca h2,#ovdp h2,#streamlined h2,#disclosure h2,#contact h2{font-size:18px;padding-left:12px;border-left:3px solid #fff;margin-bottom:18px}
 #fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3,#contact h3{font-size:24px}
+.top-bar{height:30px;line-height:30px;}
+.top-bar a{color:#fff;float:right}
 #logo{background:url("../img/logo.png") no-repeat;width:194px;height:39px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
 #logo.active,#logo:hover{background-position:0 100%}
-nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10}
+nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10;-webkit-transition:top 0.4s ease-out;-moz-transition:top 0.4s ease-out;-o-transition:top 0.4s ease-out;-ms-transition:top 0.4s ease-out;transition:top 0.4s ease-out;}
+nav.top{top:30px}
 #main-nav{float:right;margin:28px 0 0;}
 #main-nav > .nav{margin:0;padding:0;}
 #main-nav > .nav > li{display:inline-block;margin-right:40px;}
 #main-nav > .nav > li:last-child{margin-right:0}
 #main-nav > .nav > li > a{color:#6b94bb;text-transform:uppercase;text-decoration:none}
 #main-nav > .nav > li:hover > a,#main-nav > .nav > li.active > a{color:#fff}
-#home{background:url("../img/bg-los-angeles.jpg") no-repeat transparent;background-position:50% 100%;margin-top:75px;padding:40px 0}
+#home{background:url("../img/bg-los-angeles.jpg") no-repeat center top transparent;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;padding:10% 0 0;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
 #main-intro-wrap{margin:0 auto;padding:50px 0 80px;width:980px}
 #main-intro-header{text-align:center;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);}
 #main-intro-header h1{font-size:45px}
@@ -62,7 +65,7 @@ nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-ou
 .slider-index > li{background:#002344;cursor:pointer;display:inline-block;height:8px;margin-right:11px;width:45px;}
 .slider-index > li:hover,.slider-index > li.active{background:#fff}
 #main-intro-slider > .slider-index > li{margin-top:90px}
-.btn{display:inline-block;background:transparent;border:1px solid #fff;color:#fff;padding:0 24px;line-height:35px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;vertical-align:middle;}
+.btn{display:inline-block;background:transparent;border:1px solid #fff;color:#fff;padding:0 24px;line-height:35px;text-align:center;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;vertical-align:middle;-webkit-transition:border-color 0.2s ease-in;-moz-transition:border-color 0.2s ease-in;-o-transition:border-color 0.2s ease-in;-ms-transition:border-color 0.2s ease-in;transition:border-color 0.2s ease-in;}
 .btn:hover{color:#0075e1;border-color:#0075e1;background:#00172c}
 .btn.btn-question{width:130px}
 .quote-slider{position:relative;max-width:720px;margin:0 auto}
