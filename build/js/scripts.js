@@ -1,23 +1,38 @@
 (function() {
-  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, links, pageLoad, questionButton, slideTestimony, startSlider;
+  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, pageLoad, slideTestimony, startSlider;
 
   pageLoad = function() {
+    var links, questionButton;
     $('body').scrollspy({
       target: '#main-nav'
     });
     $('#home').height($(window).height());
     animateHeroBG();
-    return slideTestimony();
+    slideTestimony();
+    $(window).scroll(function() {
+      console.log('scrolling');
+      if ($(window).scrollTop() > 0) {
+        return $('nav').removeClass('top');
+      } else {
+        return $('nav').addClass('top');
+      }
+    });
+    links = $('.nav').find('a');
+    $('.nav').on('click', 'a', function(e) {
+      var section;
+      section = $(this).attr('href');
+      e.preventDefault();
+      return $(section).velocity('scroll');
+    });
+    questionButton = $('.btn-question');
+    return questionButton.hover(function() {
+      return $(this).text('Contact Us');
+    }, function() {
+      return $(this).text('Question?');
+    }).click(function() {
+      return $('#contact').velocity('scroll');
+    });
   };
-
-  $(window).scroll(function() {
-    console.log('scrolling');
-    if ($(window).scrollTop() > 0) {
-      return $('nav').removeClass('top');
-    } else {
-      return $('nav').addClass('top');
-    }
-  });
 
   slideTestimony = function() {
     var $container, $quoteArrow, $quotes, $quotesLength, autoSlide, gotoQuote, i, timer;
@@ -99,25 +114,6 @@
       }
     });
   };
-
-  links = $('.nav').find('a');
-
-  $('.nav').on('click', 'a', function(e) {
-    var section;
-    section = $(this).attr('href');
-    e.preventDefault();
-    return $(section).velocity('scroll');
-  });
-
-  questionButton = $('.btn-question');
-
-  questionButton.hover(function() {
-    return $(this).text('Contact Us');
-  }, function() {
-    return $(this).text('Question?');
-  }).click(function() {
-    return $('#contact').velocity('scroll');
-  });
 
   startSlider = function($container) {
     var $slideIndexContainer, $slides, $slidesLength, autoSlide, gotoSlide, i;

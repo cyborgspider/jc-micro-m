@@ -18,13 +18,32 @@ pageLoad = ->
   slideTestimony()
 
 
-$(window).scroll ->
-  console.log 'scrolling'
-  if $(window).scrollTop() > 0
-    $('nav').removeClass 'top'
-  else
-    $('nav').addClass 'top'
+  #Check scroll positioning, move the navigation bar if not at the top
+  $(window).scroll ->
+    console.log 'scrolling'
+    if $(window).scrollTop() > 0
+      $('nav').removeClass 'top'
+    else
+      $('nav').addClass 'top'
 
+  #Handle navigation
+  links = $('.nav').find('a')
+
+  $('.nav').on 'click', 'a', (e) ->
+    section = $(@).attr('href')
+    e.preventDefault()
+    $(section).velocity 'scroll'
+    #window.location.hash = section
+
+  #Contact Buttons 
+  questionButton = $('.btn-question')
+
+  questionButton.hover(->
+    $(@).text 'Contact Us'
+  , ->
+    $(@).text 'Question?'
+  ).click ->
+    $('#contact').velocity 'scroll'      
 
 #Testimony Transitions
 slideTestimony = () ->
@@ -100,27 +119,6 @@ animateIntroSlider = ->
     complete: ->
       startSlider($('#main-intro-slider'))
   )
-
-
-#Handle navigation
-links = $('.nav').find('a')
-
-$('.nav').on 'click', 'a', (e) ->
-  section = $(@).attr('href')
-  e.preventDefault()
-  $(section).velocity 'scroll'
-  #window.location.hash = section
-
-#Contact Buttons 
-questionButton = $('.btn-question')
-
-questionButton.hover(->
-  $(@).text 'Contact Us'
-, ->
-  $(@).text 'Question?'
-).click ->
-  $('#contact').velocity 'scroll'  
-
 
 #Slider
 startSlider = ($container) ->
