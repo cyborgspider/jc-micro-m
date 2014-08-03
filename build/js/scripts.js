@@ -1,29 +1,30 @@
 (function() {
-  var animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, pageLoad, slideTestimony, startSlider;
+  var $win, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, navHandler, pageLoad, sectionSizer, slideTestimony, startSlider, winHeight, winWidth;
+
+  $win = $(window);
+
+  winHeight = $win.height();
+
+  winWidth = $win.width();
 
   pageLoad = function() {
-    var links, questionButton;
-    $('body').scrollspy({
-      target: '#main-nav'
-    });
-    $('#home').height($(window).height());
+    $('html,body').velocity('scroll');
+    sectionSizer();
     animateHeroBG();
     slideTestimony();
-    $(window).scroll(function() {
-      console.log('scrolling');
-      if ($(window).scrollTop() > 0) {
-        return $('nav').removeClass('top');
-      } else {
-        return $('nav').addClass('top');
-      }
-    });
-    links = $('.nav').find('a');
-    $('.nav').on('click', 'a', function(e) {
-      var section;
-      section = $(this).attr('href');
-      e.preventDefault();
-      return $(section).velocity('scroll');
-    });
+    checkTop();
+    navHandler();
+    return contactButtonLoader();
+  };
+
+  $win.resize(function() {
+    if ($win.width() === winWidth) {
+      return sectionSizer();
+    }
+  });
+
+  contactButtonLoader = function() {
+    var questionButton;
     questionButton = $('.btn-question');
     return questionButton.hover(function() {
       return $(this).text('Contact Us');
@@ -31,6 +32,47 @@
       return $(this).text('Question?');
     }).click(function() {
       return $('#contact').velocity('scroll');
+    });
+  };
+
+  checkTop = function() {
+    return $win.scroll(function() {
+      if ($win.scrollTop() > 0) {
+        return $('nav').removeClass('top');
+      } else {
+        return $('nav').addClass('top');
+      }
+    });
+  };
+
+  navHandler = function() {
+    var links;
+    $('body').scrollspy({
+      target: '#main-nav'
+    });
+    links = $('nav').find('a');
+    return $('nav').on('click', 'a', function(e) {
+      var section;
+      section = $(this).attr('href');
+      e.preventDefault();
+      return $(section).velocity('scroll');
+    });
+  };
+
+  sectionSizer = function() {
+    winHeight = $win.height();
+    return $('.section').each(function() {
+      var $section, $sectionChildren, $subSectionHeight;
+      $section = $(this);
+      $sectionChildren = $section.children('.section-child');
+      if ($sectionChildren.length) {
+        $subSectionHeight = winHeight / $section.children('.section-child').length;
+        return $sectionChildren.height($subSectionHeight);
+      } else if ($section.hasClass('section-half')) {
+        return $section.height(winHeight / 2);
+      } else {
+        return $section.height(winHeight);
+      }
     });
   };
 

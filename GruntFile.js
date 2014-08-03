@@ -10,7 +10,7 @@ module.exports =function(grunt){
         },
         js: {
           files:   ['site/scripts/*.coffee'],
-          tasks:   ['coffee']
+          tasks:   ['coffee','uglify']
         },
         css:{
           files:   ['site/styles/*.styl'],

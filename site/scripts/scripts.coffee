@@ -1,3 +1,8 @@
+#Make some global variables
+$win      = $(window)
+winHeight = $win.height()
+winWidth  = $win.width()
+
 #Place all functions to init the page inside pageLoad
 pageLoad = ->
   #If a user is at the bottom of the page and refreshes, scroll back to the top and start all animations
@@ -5,37 +10,27 @@ pageLoad = ->
 
   # if hashId != '#home'
   #   $('.nav').find('a[href="'+hashId+'"]').click()
-    
+
   # else
   #   $('html,body').velocity 'scroll'
 
-  $('body').scrollspy(
-    target : '#main-nav'
-  )
-  
-  $('#home').height($(window).height())
-  animateHeroBG()  
+  #Return to top of page upon load
+  $('html,body').velocity 'scroll'
+
+  sectionSizer()
+  animateHeroBG()
   slideTestimony()
+  checkTop()
+  navHandler()
+  contactButtonLoader()
 
+#Check for window resizing
+$win.resize ->
+  if $win.width() == winWidth
+    sectionSizer()
 
-  #Check scroll positioning, move the navigation bar if not at the top
-  $(window).scroll ->
-    console.log 'scrolling'
-    if $(window).scrollTop() > 0
-      $('nav').removeClass 'top'
-    else
-      $('nav').addClass 'top'
-
-  #Handle navigation
-  links = $('.nav').find('a')
-
-  $('.nav').on 'click', 'a', (e) ->
-    section = $(@).attr('href')
-    e.preventDefault()
-    $(section).velocity 'scroll'
-    #window.location.hash = section
-
-  #Contact Buttons 
+#Contact Buttons
+contactButtonLoader = ()->
   questionButton = $('.btn-question')
 
   questionButton.hover(->
@@ -43,7 +38,50 @@ pageLoad = ->
   , ->
     $(@).text 'Question?'
   ).click ->
-    $('#contact').velocity 'scroll'      
+    $('#contact').velocity 'scroll'
+
+#Check scroll positioning, move the navigation bar if not at the top
+checkTop = ()->
+  $win.scroll ->
+    if $win.scrollTop() > 0
+      $('nav').removeClass 'top'
+    else
+      $('nav').addClass 'top'
+
+#Handle navigation
+navHandler = ()->
+  #Use bootstrap plugin to detect page location and active link
+  $('body').scrollspy(
+    target : '#main-nav'
+  )
+
+  #Click handler for links
+  links = $('nav').find('a')
+
+  $('nav').on 'click', 'a', (e) ->
+    section = $(@).attr('href')
+    e.preventDefault()
+    $(section).velocity 'scroll'
+    #window.location.hash = section
+
+#Section Height Setter
+sectionSizer = ()->
+  winHeight = $win.height()
+
+  $('.section').each ->
+      $section = $(@)
+      $sectionChildren = $section.children('.section-child')
+      if $sectionChildren.length
+        $subSectionHeight = winHeight/$section.children('.section-child').length
+        $sectionChildren.height($subSectionHeight)
+        #console.log $(this).attr('id') + $(this).children('.section-child').length
+
+      else if $section.hasClass('section-half')
+        $section.height(winHeight/2)
+
+      else
+        $section.height(winHeight)
+
 
 #Testimony Transitions
 slideTestimony = () ->
@@ -77,7 +115,7 @@ slideTestimony = () ->
 
     if direction is 'forward'
       gotoQuote('forward')
-    else 
+    else
       gotoQuote('back')
 
   timer = setInterval(autoSlide, 3000)
@@ -100,7 +138,7 @@ animateMainIntroHeader = ->
       duration: 800
       complete: ->
         animateIntroBar()
-  )  
+  )
 
 animateIntroBar = ->
   $('#main-intro-bar').velocity(
@@ -110,7 +148,7 @@ animateIntroBar = ->
     easing:   'ease-out'
     complete: ->
       animateIntroSlider()
-  )  
+  )
 
 animateIntroSlider = ->
   $('#main-intro-slider').velocity(
@@ -143,7 +181,7 @@ startSlider = ($container) ->
     #Increment i, the setInterval below will handle "auto" clicking
     if i < $slidesLength
       $slideIndexContainer.find('li:eq('+i+')').click()
-      i++ 
+      i++
     #At the end of the slideshow, reset to the first slide
     else if i = $slidesLength
       i = 0
@@ -163,7 +201,7 @@ startSlider = ($container) ->
 #     #Find out why I can't use the global variable I set earlier (links)
 #     $('nav').find('a[href="#'+sectionId+'"]').addClass('active')
 #     window.location.hash = sectionId
-  
+
 #   continuous: false
 
 
