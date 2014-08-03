@@ -60,14 +60,16 @@
   };
 
   sectionSizer = function() {
+    var navHeight;
     winHeight = $win.height();
+    navHeight = $('nav').height();
     return $('.section').each(function() {
       var $section, $sectionChildren, $subSectionHeight;
       $section = $(this);
       $sectionChildren = $section.children('.section-child');
       if ($sectionChildren.length) {
-        $subSectionHeight = winHeight / $section.children('.section-child').length;
-        return $sectionChildren.height($subSectionHeight);
+        $subSectionHeight = winHeight / $sectionChildren.length;
+        return $sectionChildren.height($subSectionHeight - (navHeight / $sectionChildren.length));
       } else if ($section.hasClass('section-half')) {
         return $section.height(winHeight / 2);
       } else {

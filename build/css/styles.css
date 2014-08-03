@@ -10,25 +10,22 @@ h1,h2,h3{font-weight:700;margin:0}
 .list li{margin-bottom:12px}
 .small{color:#9b9b9b;font-size:14px;font-style:italic}
 .strong{color:#2a97ff;font-weight:bold}
-#fbar h1,#fatca h1,#ovdp h1,#streamlined h1,#disclosure h1,#contact h1{font-size:72px;margin-bottom:12px}
-#fbar h2,#fatca h2,#ovdp h2,#streamlined h2,#disclosure h2,#contact h2{font-size:18px;padding-left:12px;border-left:3px solid #fff;margin-bottom:18px}
-#fbar h3,#fatca h3,#ovdp h3,#streamlined h3,#disclosure h3,#contact h3{font-size:24px}
 .bg-dark{background:#001f3c;padding:55px 0;height:330px}
-.bg-split{background:url("../img/bg-split.png") repeat-y top center cover}
+.bg-split{background:url("../img/bg-split.png") repeat-y top center}
 .bg-split-alt{background:url("../img/bg-split-alt.png") repeat-y top center}
-.bg-fbar{background:url("../img/bg-fbar.jpg") top center no-repeat cover}
-.bg-fatca{background:url("../img/bg-fatca.jpg") top center no-repeat cover}
-.bg-disclosure{background:url("../img/bg-disclosure.jpg") top center no-repeat cover}
-.content{padding:40px 0 50px 0;}
-.content.left{padding-right:44px}
-.content.right{padding-left:44px}
-#fatca .content{padding-top:80px}
-#fbar .content{padding-top:60px}
-#ovdp .content{padding-top:80px;padding-bottom:80px}
-.section{clear:both;zoom:1;}
-.section:before,.section:after{content:"";display:table}
-.section:after{clear:both}
-.section:before{content:'';display:block;height:75px}
+.bg-fbar{background:url("../img/bg-fbar.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
+.bg-fatca{background:url("../img/bg-fatca.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
+.bg-ovdp{background:url("../img/bg-fbar.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
+.bg-disclosure{background:url("../img/bg-disclosure.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
+.content{padding:60px 0 40px 0;}
+.content.left{padding-right:60px;padding-left:60px}
+.content.right{padding-left:40px}
+.content.content-text{padding-top:40px}
+.content h1{font-size:72px;margin-bottom:12px;margin-top:-10px}
+.content h2{font-size:18px;padding-left:12px;border-left:3px solid #fff;margin-bottom:18px}
+.content h3{font-size:24px}
+.section{clear:both;}
+.section:before{content:'';display:block;margin-top:-75px;padding-top:75px;background:transparent}
 .top-bar{height:30px;line-height:30px;}
 .top-bar a{color:#fff;float:right}
 #logo{background:url("../img/logo.png") no-repeat;width:194px;height:39px;display:block;text-indent:-9999px;float:left;margin:18px 0 0;}
@@ -41,6 +38,7 @@ nav.top{top:30px}
 #main-nav > .nav > li:last-child{margin-right:0}
 #main-nav > .nav > li > a{color:#6b94bb;text-transform:uppercase;text-decoration:none}
 #main-nav > .nav > li:hover > a,#main-nav > .nav > li.active > a{color:#fff}
+#main-nav > .nav > li.active > a{font-weight:700}
 #home{background:url("../img/bg-los-angeles.jpg") no-repeat center top transparent;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;padding:10% 0 0;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
 #main-intro-wrap{margin:0 auto;padding:50px 0 80px;width:980px}
 #main-intro-header{text-align:center;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);}
@@ -54,8 +52,9 @@ nav.top{top:30px}
 #intro h2{font-size:28px;font-weight:400;margin-bottom:24px}
 #intro h3{font-size:22px;margin-bottom:18px}
 .divide{background:url("../img/divide.png") no-repeat center top;width:752px;height:20px;margin:0 auto 18px}
+.video-container{position:absolute;height:100%;width:100%;overflow:hidden}
 .video-screen{position:absolute;top:0;left:0;width:100%;height:100%;background:url("../img/pattern-screen.png");z-index:2}
-#video{position:absolute;top:0;left:0;right:0;bottom:0;width:100% !important;height:100% !important}
+#video{min-width:100%;min-height:100%}
 .slider-container{background:url("../img/bg-slider.png");-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;margin:0 auto;width:892px;height:637px;padding:140px 0 0;position:relative;z-index:3}
 .slider{position:relative}
 .slide{position:absolute;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);-webkit-transition:opacity 0.8s;-moz-transition:opacity 0.8s;-o-transition:opacity 0.8s;-ms-transition:opacity 0.8s;transition:opacity 0.8s;}

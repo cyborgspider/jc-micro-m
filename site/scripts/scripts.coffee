@@ -66,15 +66,18 @@ navHandler = ()->
 
 #Section Height Setter
 sectionSizer = ()->
+  #Calculate the window height minus the nav bar height
   winHeight = $win.height()
+  navHeight = $('nav').height()
 
   $('.section').each ->
       $section = $(@)
       $sectionChildren = $section.children('.section-child')
+
       if $sectionChildren.length
-        $subSectionHeight = winHeight/$section.children('.section-child').length
-        $sectionChildren.height($subSectionHeight)
-        #console.log $(this).attr('id') + $(this).children('.section-child').length
+        $subSectionHeight = winHeight/$sectionChildren.length
+        #We must also account for the nav height gap, so we subtract the nav height to even things out
+        $sectionChildren.height($subSectionHeight - (navHeight/$sectionChildren.length))
 
       else if $section.hasClass('section-half')
         $section.height(winHeight/2)
