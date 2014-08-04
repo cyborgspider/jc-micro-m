@@ -13,7 +13,7 @@ h1,h2,h3,h4{font-weight:700;margin:0}
 .bg-dark{background:#001f3c;padding:55px 0;height:330px}
 .bg-split{background:url("../img/bg-split.png") repeat-y top center}
 .bg-split-alt{background:url("../img/bg-split-alt.png") repeat-y top center}
-.bg-form{background:url("../img/bg-form.png") repeat-y top center}
+.bg-form{background:url("../img/bg-form.png") repeat-y top center;margin-top:-75px}
 .bg-fbar{background:url("../img/bg-fbar.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
 .bg-fatca{background:url("../img/bg-fatca.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
 .bg-ovdp{background:url("../img/bg-fbar.jpg") top center no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover}
