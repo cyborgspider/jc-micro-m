@@ -1,75 +1,82 @@
-#contact.container.content
-  h1 CONTACT US
-  p.mb30 JC&amp;Company has formed a network of FBAR and FATCA specialists to serve the needs of our clients. Our team of dedicated Attorneys and CPAs are up to date on all IRS changes and have completed many successful cases of OVDP, Streamlined, and Quiet Disclosure for our U.S. resident and non-resident clients.
-  p Analyze the clients' cases in terms of OVDP / Streamlined / Quite Disclosure eligibility
-  ul.list
-    li Evaluate the clients' facts and prepare legal arguments for penalty waiver
-    li Assist the clients in the compliance assessment 
-    li Help the clients meet the filing requirements on a timely basis
-    li Represent the clients before the IRS
+#contact.section.section-half
+  .container.content.content-text
+    h1 CONTACT US
+    p.mb30 JC&amp;Company has formed a network of FBAR and FATCA specialists to serve the needs of our clients. Our team of dedicated Attorneys and CPAs are up to date on all IRS changes and have completed many successful cases of OVDP, Streamlined, and Quiet Disclosure for our U.S. resident and non-resident clients.
+    p Analyze the clients' cases in terms of OVDP / Streamlined / Quite Disclosure eligibility
+    ul.list
+      li Evaluate the clients' facts and prepare legal arguments for penalty waiver
+      li Assist the clients in the compliance assessment
+      li Help the clients meet the filing requirements on a timely basis
+      li Represent the clients before the IRS
 
-.container-fluid.bg-split-alt
+.container-fluid.bg-form
   .container
     .row
-      .col-xs-6.content
-        h3 How Can JC&amp;Company Help You?
-        p If you have any more question or wish to learn more about our service, please choose one of the following ways to contact us. Our door is always open!
+      .col-xs-6.content.content-text.left
+        .contact-info
+          h3.mb30 How Can JC&amp;Company Help You?
+          p.mb30 If you have any more question or wish to learn more about our service, please choose one of the following ways to contact us. Our door is always open!
 
-        ul.locations-list
-          li
-            h4 Irvine Headquarters
-            a(href="#") View Map
-            p 10 Corporate Park, Ste. 210, Irvine CA 92606
-            p 949-553-1110
-          li
-            h4 Los Angeles
-            a(href="#") View Map
-            p 4801 Wilshire Blvd. Ste. 306, Los Angeles, CA 90010
-            p 949-553-1110
-          li
-            h4 Seoul Korea
-            a(href="#") View Map
-            p OTC B/D 108-14, 5th Fl. Samsung-dong, Gangnam
-            p 949-553-1110
+          ul.locations-list
+            li
+              h4 Irvine Headquarters
+              a.view-map(href="#") View Map
+              p 10 Corporate Park, Ste. 210, Irvine CA 92606
+              p 949-553-1110
+            li
+              h4 Los Angeles
+              a.view-map(href="#") View Map
+              p 4801 Wilshire Blvd. Ste. 306, Los Angeles, CA 90010
+              p 949-553-1110
+            li
+              h4 Seoul Korea
+              a.view-map(href="#") View Map
+              p OTC B/D 108-14, 5th Fl. Samsung-dong, Gangnam
+              p 949-553-1110
 
-        p Stay connected with us through social media, email alerts or webcasts.
-        ul.social-list
-          li
-            i.fa.fa-twitter
-          li
-            i.fa.fa-facebook
-          li
-            i.fa.fa-youtube
-          li
-            i.fa.fa-linkedin
+          p Stay connected with us through social media, email alerts or webcasts.
+          ul.social-list
+            li
+              a(href="twitter.com", target="_blank")
+                i.fa.fa-twitter
+            li
+              a(href="facebook.com", target="_blank")
+                i.fa.fa-facebook
+            li
+              a(href="youtube.com", target="_blank")
+                i.fa.fa-youtube
+            li
+              a(href="linkedin.com", target="_blank")
+                i.fa.fa-linkedin
 
-      .col-xs-6.content.right
+      .col-xs-6.content.content-text.right
         form.form-horizontal
           .form-group
-            label.col-sm-5.control-label Your name
-            .col-sm-7
+            label.col-sm-4.control-label Your name
+            .col-sm-8
               input.form-control(type="text")
 
           .form-group
-            label.col-sm-5.control-label Email address
-            .col-sm-7
-              input.form-control(type="text")   
+            label.col-sm-4.control-label Email address
+            .col-sm-8
+              input.form-control(type="text")
 
           .form-group
-            label.col-sm-5.control-label Your location
-            .col-sm-7
-              input.form-control(type="text")  
+            label.col-sm-4.control-label Your location
+            .col-sm-8
+              input.form-control(type="text")
 
           .form-group
-            label.col-sm-5.control-label Contact number
-            .col-sm-7
-              input.form-control(type="text") 
+            label.col-sm-4.control-label Contact number
+            .col-sm-8
+              input.form-control(type="text")
 
           .form-group
-            label.col-sm-5.control-label Subject
-            .col-sm-7
-              input.form-control(type="text")                                      
+            label.col-sm-4.control-label Subject
+            .col-sm-8
+              input.form-control(type="text")
 
-          textarea.col-sm-12 Type your message here...
+          .form-group
+            textarea.form-control.col-sm-12 Type your message here...
 
-          input(type="submit").button.pull-right Submit
+          input#submit-form.btn.pull-right(type="submit") Submit

@@ -9,24 +9,32 @@
 .bg-split-alt
   background url(../img/bg-split-alt.png) repeat-y top center
 
+.bg-form
+  background url(../img/bg-form.png) repeat-y top center
+
 .bg-fbar
   background      url(../img/bg-fbar.jpg) top center no-repeat
   background-size cover
 
 .bg-fatca
   background      url(../img/bg-fatca.jpg) top center no-repeat
-  background-size cover 
+  background-size cover
 
 .bg-ovdp
   background      url(../img/bg-fbar.jpg) top center no-repeat
-  background-size cover  
+  background-size cover
+
+.bg-streamlined
+  background      url(../img/bg-streamlined.png) top center no-repeat
+  background-size cover
 
 .bg-disclosure
-  background      url(../img/bg-disclosure.jpg) top center no-repeat 
+  background      url(../img/bg-disclosure.jpg) top center no-repeat
   background-size cover
 
 .content
-  padding 60px 0 40px 0
+  padding  60px 0 40px 0
+  overflow hidden
 
   &.left
     padding-right 60px
@@ -36,17 +44,63 @@
   &.content-text
     padding-top 40px
 
-  h1 
-    font-size     72px
-    margin-bottom 12px
-    margin-top    -10px
+  h1
+    font-size      72px
+    margin-bottom  12px
+    margin-top     -10px
+    text-transform uppercase
   h2
     font-size     18px
     padding-left  12px
     border-left   3px solid #fff
-    margin-bottom 18px
+    margin-bottom 24px
   h3
-    font-size     24px    
+    font-size     24px
+
+
+.content-items
+  display table
+  padding 40px 60px
+
+.content-item
+  padding        0 25px
+  border-right   1px solid #00284c
+  border-left    1px solid #0061bb
+  float          none
+  display        table-cell
+  vertical-align top
+
+  &:first-child
+    border-left  none
+    padding-left 0
+
+  &:last-child
+    border-right  none
+    padding-right 0
+
+  h4
+    font-size   24px
+    font-weight 400
+    color       $blue-gray
+
+    & > span
+      color       #fff
+      font-weight 700
+
+  a
+    color       #fff
+    font-size   12px
+    line-height 1.4
+    width       70%
+    display     inline-block
+
+  .fa-twitter
+    font-size    38px
+    color        $blue-gray
+    float        left
+    margin-right 20px
+
+
 
 .section
   clear both

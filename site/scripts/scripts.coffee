@@ -73,14 +73,18 @@ sectionSizer = ()->
   $('.section').each ->
       $section = $(@)
       $sectionChildren = $section.children('.section-child')
+      $sectionChildSmall = $sectionChildren.filter('.section-child-small')
 
       if $sectionChildren.length
+        #If there are subsections, set a height for each subsection divided by total window height
         $subSectionHeight = winHeight/$sectionChildren.length
+
         #We must also account for the nav height gap, so we subtract the nav height to even things out
         $sectionChildren.height($subSectionHeight - (navHeight/$sectionChildren.length))
+        # console.log $section.attr('id') + ' has ' + $sectionChildSmall.length + ' smaller sections.'
 
       else if $section.hasClass('section-half')
-        $section.height(winHeight/2)
+        $section.height((winHeight/2) + (navHeight))
 
       else
         $section.height(winHeight)

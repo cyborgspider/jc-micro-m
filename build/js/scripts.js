@@ -64,14 +64,15 @@
     winHeight = $win.height();
     navHeight = $('nav').height();
     return $('.section').each(function() {
-      var $section, $sectionChildren, $subSectionHeight;
+      var $section, $sectionChildSmall, $sectionChildren, $subSectionHeight;
       $section = $(this);
       $sectionChildren = $section.children('.section-child');
+      $sectionChildSmall = $sectionChildren.filter('.section-child-small');
       if ($sectionChildren.length) {
         $subSectionHeight = winHeight / $sectionChildren.length;
         return $sectionChildren.height($subSectionHeight - (navHeight / $sectionChildren.length));
       } else if ($section.hasClass('section-half')) {
-        return $section.height(winHeight / 2);
+        return $section.height((winHeight / 2) + navHeight);
       } else {
         return $section.height(winHeight);
       }
