@@ -1,5 +1,5 @@
 (function() {
-  var $win, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, navHandler, pageLoad, sectionSizer, slideTestimony, startSlider, winHeight, winWidth;
+  var $win, agentID, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, deviceAgent, navHandler, pageLoad, sectionSizer, slideTestimony, startSlider, winHeight, winWidth;
 
   $win = $(window);
 
@@ -7,19 +7,57 @@
 
   winWidth = $win.width();
 
+  deviceAgent = navigator.userAgent.toLowerCase();
+
+  agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
+
   pageLoad = function() {
     $('html,body').velocity('scroll');
+    $('#contact-form')[0].reset();
     sectionSizer();
     animateHeroBG();
     slideTestimony();
     checkTop();
     navHandler();
-    return contactButtonLoader();
+    contactButtonLoader();
+    $('#contact-form').parsley();
+    if (agentID) {
+      return $('#video').remove();
+    }
   };
 
   $win.resize(function() {
     if ($win.width() === winWidth) {
       return sectionSizer();
+    }
+  });
+
+  $("textarea").focus(function() {
+    if ($(this).val() === 'Type your message here...') {
+      return $(this).val('');
+    }
+  });
+
+  $("textarea").blur(function() {
+    if ($(this).val() === '') {
+      return $(this).val('Type your message here...');
+    }
+  });
+
+  $('#contact-form').submit(function(e) {
+    e.preventDefault();
+    if ($(this).parsley().validate()) {
+      return $.ajax({
+        type: 'POST',
+        url: 'php/contact.php',
+        data: $(this).serialize(),
+        success: function() {
+          return $('#contact-form').html('<h3>Thanks for contacting us! We will get back to you shortly.</h3>');
+        },
+        error: function() {
+          return $('#contact-form').html('<h3>There was an error with your submission. Please contact us at (949) 553-1110</h3>');
+        }
+      });
     }
   });
 

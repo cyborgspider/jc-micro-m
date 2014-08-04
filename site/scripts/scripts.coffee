@@ -1,7 +1,9 @@
 #Make some global variables
-$win      = $(window)
-winHeight = $win.height()
-winWidth  = $win.width()
+$win        = $(window)
+winHeight   = $win.height()
+winWidth    = $win.width()
+deviceAgent = navigator.userAgent.toLowerCase()
+agentID     = deviceAgent.match(/(iphone|ipod|ipad)/)
 
 #Place all functions to init the page inside pageLoad
 pageLoad = ->
@@ -16,6 +18,8 @@ pageLoad = ->
 
   #Return to top of page upon load
   $('html,body').velocity 'scroll'
+  #Empty form
+  $('#contact-form')[0].reset()
 
   sectionSizer()
   animateHeroBG()
@@ -23,11 +27,40 @@ pageLoad = ->
   checkTop()
   navHandler()
   contactButtonLoader()
+  $('#contact-form').parsley()
+  #startSlider($('#intro-slider'))
+
+
+  #If iOS, remove the video
+  if agentID 
+    #$('head').append('<link href="css/ios.css" rel="stylesheet" />')
+    $('#video').remove()
 
 #Check for window resizing
 $win.resize ->
   if $win.width() == winWidth
     sectionSizer()
+
+#Contact Form
+$("textarea").focus ->
+    if $(@).val() == 'Type your message here...'
+      $(@).val('')
+
+$("textarea").blur ->
+    if $(@).val() == ''
+      $(@).val('Type your message here...')
+
+$('#contact-form').submit (e)->
+  e.preventDefault()
+  if $(this).parsley().validate()
+    $.ajax
+        type: 'POST'
+        url: 'php/contact.php'
+        data: $(this).serialize()
+        success: ->
+            $('#contact-form').html('<h3>Thanks for contacting us! We will get back to you shortly.</h3>')
+        error: ->
+            $('#contact-form').html('<h3>There was an error with your submission. Please contact us at (949) 553-1110</h3>')
 
 #Contact Buttons
 contactButtonLoader = ()->
@@ -87,7 +120,7 @@ sectionSizer = ()->
         $section.height((winHeight/2) + (navHeight))
 
       else
-        $section.height(winHeight)
+        $section.height(winHeight) 
 
 
 #Testimony Transitions

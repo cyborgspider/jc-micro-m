@@ -1,5 +1,5 @@
-#contact.section.section-half
-  .container.content.content-text
+#contact
+  .container.content
     h1 CONTACT US
     p.mb30 JC&amp;Company has formed a network of FBAR and FATCA specialists to serve the needs of our clients. Our team of dedicated Attorneys and CPAs are up to date on all IRS changes and have completed many successful cases of OVDP, Streamlined, and Quiet Disclosure for our U.S. resident and non-resident clients.
     p Analyze the clients' cases in terms of OVDP / Streamlined / Quite Disclosure eligibility
@@ -50,33 +50,40 @@
                 i.fa.fa-linkedin
 
       .col-xs-6.content.content-text.right
-        form.form-horizontal
+        form#contact-form.form-horizontal
           .form-group
-            label.col-sm-4.control-label Your name
+            label.col-sm-4.control-label(for="name") Your name
             .col-sm-8
-              input.form-control(type="text")
+              input#name.form-control(type="text", name="name", required)
 
           .form-group
-            label.col-sm-4.control-label Email address
+            label.col-sm-4.control-label(for="email") Email address
             .col-sm-8
-              input.form-control(type="text")
+              input#email.form-control(type="email", name="email", data-parsley-trigger="change", required)
 
           .form-group
-            label.col-sm-4.control-label Your location
+            label.col-sm-4.control-label(for="location") Your location
             .col-sm-8
-              input.form-control(type="text")
+              input#location.form-control(type="text", name="location")
 
           .form-group
-            label.col-sm-4.control-label Contact number
+            label.col-sm-4.control-label(for="phone") Contact number
             .col-sm-8
-              input.form-control(type="text")
+              input#phone.form-control(type="tel", data-parsley-minlength="10", name="phone", required)
 
           .form-group
-            label.col-sm-4.control-label Subject
+            label.col-sm-4.control-label(for="subject") Subject
             .col-sm-8
-              input.form-control(type="text")
+              input#subject.form-control(type="text", value="Question about FATCA/FBAR", name="subject", required)
 
           .form-group
-            textarea.form-control.col-sm-12 Type your message here...
+            textarea#message.form-control.col-sm-12(
+              required
+              name                              = "message"
+              data-parsley-trigger              = "keyup"
+              data-parsley-length               = "[20, 100]"
+              data-parsley-validation-threshold = "10"
+              data-parsley-minlength-message    = "Please enter at least 20 characters, up to 200."
+            ) Type your message here...
 
           input#submit-form.btn.pull-right(type="submit") Submit

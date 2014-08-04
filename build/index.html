@@ -6,6 +6,9 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1"><!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->          
   </head>
   <body>
     <div class="top-bar">
@@ -21,6 +24,7 @@
             <li><a href="#ovdp" data-target="#ovdp">OVDP</a></li>
             <li><a href="#streamlined" data-target="#streamlined">Streamlined</a></li>
             <li><a href="#disclosure" data-target="#disclosure">Quiet Disclosure</a></li>
+            <li><a href="#contact" data-target="#contact">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -71,8 +75,8 @@
             <source src="vid/city.webm" type="video/webm">
           </video>
         </div>
-        <div class="slider-container">
-          <div id="intro-slider" class="slider">
+        <div id="intro-slider" class="slider">
+          <div class="slide-wrap">
             <ul class="slider-index">
               <li class="active"></li>
               <li></li>
@@ -200,7 +204,7 @@
         </div>
       </div>
     </div>
-    <div id="testimony" class="container-fluid bg-dark">
+    <div id="testimony" class="container-fluid bg-testimony">
       <div class="container">
         <div class="quote-slider">
           <div class="quote active">
@@ -253,17 +257,17 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid bg-split section-child section-child-small">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-6 content content-text left">
-              <h3 class="mb30">Benefits of Disclosure:</h3>
-              <p>The OVDP allows taxpayers to avoid civil penalties and limit the risk of audits and investigations, full FBAR penalties, and potential prosecution.</p>
-            </div>
-            <div class="col-xs-6 content content-text right">
-              <h3 class="mb30">Risks of Non-Disclosure:</h3>
-              <p>If the IRS finds out about a taxpayer's foreign account before he/she reports it, then the taxpayer's accounts may be seized and criminally charged by the IRS.</p>
-            </div>
+    </div>
+    <div class="container-fluid bg-split">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 content content-text left">
+            <h3 class="mb30">Benefits of Disclosure:</h3>
+            <p>The OVDP allows taxpayers to avoid civil penalties and limit the risk of audits and investigations, full FBAR penalties, and potential prosecution.</p>
+          </div>
+          <div class="col-xs-6 content content-text right">
+            <h3 class="mb30">Risks of Non-Disclosure:</h3>
+            <p>If the IRS finds out about a taxpayer's foreign account before he/she reports it, then the taxpayer's accounts may be seized and criminally charged by the IRS.</p>
           </div>
         </div>
       </div>
@@ -286,11 +290,11 @@
       <div class="container-fluid bg-split section-child">
         <div class="container">
           <div class="row">
-            <div class="col-xs-6 content left">
+            <div class="col-xs-6 content content-text left">
               <h3 class="mb30">Who can apply for Streamlined?</h3>
               <p>Whether you are a U.S. resident or a non-U.S. resident, you are eligible to use the streamlined procedure as long as your failure to report foreign financial accounts was resulted from non-willful conduct.</p><img src="img/streamlined.png" alt="Streamlined">
             </div>
-            <div class="col-xs-6 content right">
+            <div class="col-xs-6 content content-text right">
               <h3 class="mb30">Why should I participate in Streamlined?</h3>
               <p>Failure to file and pay penalties may be imposed in accordance with the U.S. federal tax law. However, through Streamlined, you can avoid such penalties by paying fixed penalties:</p>
               <ul class="list">
@@ -302,8 +306,8 @@
         </div>
       </div>
     </div>
-    <div id="disclosure" class="section section-half bg-disclosure">
-      <div class="container-fluid">
+    <div id="disclosure" class="section section-half">
+      <div class="container-fluid bg-disclosure">
         <div class="container">
           <div class="row">
             <div class="col-xs-6 content">
@@ -319,8 +323,8 @@
         </div>
       </div>
     </div>
-    <div id="contact" class="section section-half">
-      <div class="container content content-text">
+    <div id="contact">
+      <div class="container content">
         <h1>CONTACT US</h1>
         <p class="mb30">JC&amp;Company has formed a network of FBAR and FATCA specialists to serve the needs of our clients. Our team of dedicated Attorneys and CPAs are up to date on all IRS changes and have completed many successful cases of OVDP, Streamlined, and Quiet Disclosure for our U.S. resident and non-resident clients.</p>
         <p>Analyze the clients' cases in terms of OVDP / Streamlined / Quite Disclosure eligibility</p>
@@ -366,39 +370,39 @@
             </div>
           </div>
           <div class="col-xs-6 content content-text right">
-            <form class="form-horizontal">
+            <form id="contact-form" class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-4 control-label">Your name</label>
+                <label for="name" class="col-sm-4 control-label">Your name</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control">
+                  <input id="name" type="text" name="name" required class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Email address</label>
+                <label for="email" class="col-sm-4 control-label">Email address</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control">
+                  <input id="email" type="email" name="email" data-parsley-trigger="change" required class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Your location</label>
+                <label for="location" class="col-sm-4 control-label">Your location</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control">
+                  <input id="location" type="text" name="location" class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Contact number</label>
+                <label for="phone" class="col-sm-4 control-label">Contact number</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control">
+                  <input id="phone" type="tel" data-parsley-minlength="10" name="phone" required class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-4 control-label">Subject</label>
+                <label for="subject" class="col-sm-4 control-label">Subject</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control">
+                  <input id="subject" type="text" value="Question about FATCA/FBAR" name="subject" required class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <textarea class="form-control col-sm-12">Type your message here...</textarea>
+                <textarea id="message" required name="message" data-parsley-trigger="keyup" data-parsley-length="[20, 100]" data-parsley-validation-threshold="10" data-parsley-minlength-message="Please enter at least 20 characters, up to 200." class="form-control col-sm-12">Type your message here...</textarea>
               </div>
               <input id="submit-form" type="submit" class="btn pull-right">
             </form>
@@ -415,6 +419,7 @@
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/jquery.velocity.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/velocity/0.7.0/velocity.ui.min.js"></script>
+    <script src="http://parsleyjs.org/dist/parsley.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.min.js"></script>
   </body>
