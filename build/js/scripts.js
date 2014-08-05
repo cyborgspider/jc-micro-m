@@ -1,5 +1,5 @@
 (function() {
-  var $win, agentID, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, deviceAgent, navHandler, pageLoad, sectionSizer, slideTestimony, startSlider, winHeight, winWidth;
+  var $win, agentID, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, deviceAgent, navHandler, pageLoad, sectionSizer, slideTestimony, startQuiz, startSlider, winHeight, winWidth;
 
   $win = $(window);
 
@@ -21,6 +21,7 @@
     navHandler();
     contactButtonLoader();
     $('#contact-form').parsley();
+    startQuiz($('#intro-slider'));
     if (agentID) {
       return $('#video').remove();
     }
@@ -84,12 +85,10 @@
   };
 
   navHandler = function() {
-    var links;
     $('body').scrollspy({
       target: '#main-nav'
     });
-    links = $('nav').find('a');
-    return $('nav').on('click', 'a', function(e) {
+    return $('a').filter('.nav-link').on('click', function(e) {
       var section;
       section = $(this).attr('href');
       e.preventDefault();
@@ -108,9 +107,11 @@
       $sectionChildSmall = $sectionChildren.filter('.section-child-small');
       if ($sectionChildren.length) {
         $subSectionHeight = winHeight / $sectionChildren.length;
-        return $sectionChildren.height($subSectionHeight - (navHeight / $sectionChildren.length));
-      } else if ($section.hasClass('section-half')) {
-        return $section.height((winHeight / 2) + navHeight);
+        $sectionChildren.height($subSectionHeight - (navHeight / $sectionChildren.length));
+      }
+      if ($section.hasClass('section-half') && $sectionChildren.length) {
+        $section.height((winHeight * 0.6) + navHeight);
+        return $sectionChildren.height(winHeight * 0.6);
       } else {
         return $section.height(winHeight);
       }
@@ -154,7 +155,7 @@
         return gotoQuote('back');
       }
     });
-    return timer = setInterval(autoSlide, 3000);
+    return timer = setInterval(autoSlide, 8000);
   };
 
   animateHeroBG = function() {
@@ -223,7 +224,36 @@
       }
     };
     $slideIndexContainer.on('click', 'li', gotoSlide);
-    return setInterval(autoSlide, 3000);
+    return setInterval(autoSlide, 5000);
+  };
+
+  startQuiz = function($container) {
+    var $nextArrow, $slideIndexContainer, $slideIndices, $slides, $slidesLength, goNext, gotoSlide, i;
+    $slideIndexContainer = $container.find('.slider-index');
+    $slideIndices = $slideIndexContainer.find('li');
+    $slides = $container.find('.slide');
+    $slidesLength = $slides.length;
+    $nextArrow = $container.find('.slide-next');
+    i = 0;
+    gotoSlide = function($slideIndex) {
+      var $this;
+      $this = $(this);
+      $slideIndex = $this.index();
+      i = $slideIndex;
+      $this.addClass('active');
+      $this.siblings().removeClass('active');
+      $slides.removeClass('active');
+      return $slides.eq($slideIndex).addClass('active');
+    };
+    goNext = function() {
+      i++;
+      $slides.removeClass('active');
+      $slides.eq(i).addClass('active');
+      $slideIndices.removeClass('active');
+      return $slideIndices.eq(i).addClass('active');
+    };
+    $slideIndexContainer.on('click', 'li', gotoSlide);
+    return $nextArrow.on('click', goNext);
   };
 
   pageLoad();

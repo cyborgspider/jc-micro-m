@@ -28,7 +28,7 @@ pageLoad = ->
   navHandler()
   contactButtonLoader()
   $('#contact-form').parsley()
-  #startSlider($('#intro-slider'))
+  startQuiz($('#intro-slider'))
 
 
   #If iOS, remove the video
@@ -89,9 +89,7 @@ navHandler = ()->
   )
 
   #Click handler for links
-  links = $('nav').find('a')
-
-  $('nav').on 'click', 'a', (e) ->
+  $('a').filter('.nav-link').on 'click', (e) ->
     section = $(@).attr('href')
     e.preventDefault()
     $(section).velocity 'scroll'
@@ -116,8 +114,9 @@ sectionSizer = ()->
         $sectionChildren.height($subSectionHeight - (navHeight/$sectionChildren.length))
         # console.log $section.attr('id') + ' has ' + $sectionChildSmall.length + ' smaller sections.'
 
-      else if $section.hasClass('section-half')
-        $section.height((winHeight/2) + (navHeight))
+      if $section.hasClass('section-half') and $sectionChildren.length
+        $section.height((winHeight*0.6) + (navHeight))
+        $sectionChildren.height(winHeight*0.6)
 
       else
         $section.height(winHeight)
@@ -151,14 +150,14 @@ slideTestimony = () ->
   $quoteArrow.on 'click', ->
     direction = $(@).data('direction')
     #clearInterval(timer)
-    #timer = setInterval(autoSlide, 3000)
+    #timer = setInterval(autoSlide, 5000)
 
     if direction is 'forward'
       gotoQuote('forward')
     else
       gotoQuote('back')
 
-  timer = setInterval(autoSlide, 3000)
+  timer = setInterval(autoSlide, 8000)
 
 #Place animations inside functions to call them using Velocity callbacks
 animateHeroBG = ->
@@ -227,8 +226,39 @@ startSlider = ($container) ->
       i = 0
 
   $slideIndexContainer.on 'click', 'li', gotoSlide
-  setInterval(autoSlide, 3000)
+  setInterval(autoSlide, 5000)
 
+#Quiz
+startQuiz = ($container) ->
+  $slideIndexContainer = $container.find('.slider-index')
+  $slideIndices        = $slideIndexContainer.find('li')
+  $slides              = $container.find('.slide')
+  $slidesLength        = $slides.length
+  $nextArrow           = $container.find('.slide-next')
+  i                    = 0
+
+  gotoSlide = ($slideIndex) ->
+    $this       = $(@)
+    $slideIndex = $this.index()
+    i           = $slideIndex
+
+    $this.addClass 'active'
+    $this.siblings().removeClass 'active'
+
+    $slides.removeClass 'active'
+    $slides.eq($slideIndex).addClass 'active'
+
+  goNext = () ->
+    i++
+    $slides.removeClass 'active'
+    $slides.eq(i).addClass 'active'  
+
+    $slideIndices.removeClass 'active'
+    $slideIndices.eq(i).addClass 'active'  
+
+  $slideIndexContainer.on 'click', 'li', gotoSlide
+  $nextArrow.on 'click', goNext
+    
 #Waypoints
 #This didn't work very well. TODO: Make it better, I still prefer over ScrollSpy
 #http://imakewebthings.com/jquery-waypoints/#get-started

@@ -7,7 +7,6 @@
         source(src="vid/city.webm", type="video/webm")
 
     #intro-slider.slider
-
       .slide-wrap
       
         ul.slider-index
@@ -21,6 +20,7 @@
           h2 And do you own a foreign bank account?
           .divide
           h3 Yes, why do you ask?
+          i.fa.fa-arrow-right.slide-next
 
         .slide
           h1 Are you a U.S. taxpayer?
@@ -29,9 +29,18 @@
           h3 Yes, why do you ask?
 
           p You MUST disclose your foreign bank account by filing FBAR and FATCA to the IRS.
-          p Not familiar with
-          button.btn FBAR
-          button.btn FATCA
+          p.strong Not familiar with
+          a.nav-link(href="#fbar").btn FBAR
+          span or
+          a.nav-link(href="#fatca").btn FATCA
+          i.fa.fa-arrow-right.slide-next
+
+        .slide
+          h1 Did you report
+          h2 your foreign account to the IRS?
+          .divide
+          h3 No, why does it matter?
+          i.fa.fa-arrow-right.slide-next
 
         .slide
           h1 Did you report
@@ -39,14 +48,9 @@
           .divide
           h3 No, why does it matter?
 
-        .slide
-          h1 Did you report
-          h2 your foreign account to the IRS?
-          .divide
-          h3 No, why does it matter?
 
           p If you haven&rsquo;t already done so, you may be in bigger trouble than you can imagine. Failure to comply with the FBAR and FATCA requirements may result in significant civil and criminal penalties.
-          p Legal ways to avoid penalties.
-          button.btn OVDP
-          button.btn Streamlined
-          button.btn Quiet Disclosure
+          p.strong Legal ways to avoid penalties.
+          a.nav-link(href="#ovdp").btn OVDP
+          a.nav-link(href="#streamlined").btn Streamlined
+          a.nav-link(href="#disclosure").btn Quiet Disclosure

@@ -1,24 +1,32 @@
 .btn
-  display        inline-block
-  background     transparent
-  border         1px solid #fff
-  color          #fff
-  padding        0 24px
-  line-height    35px
-  text-align     center
-  user-select    none
-  cursor         pointer
-  vertical-align middle
-  transition     border-color 0.2s ease-in
+  display         inline-block
+  background      transparent
+  border          1px solid #fff
+  color           #fff
+  padding         0 24px
+  line-height     35px
+  text-align      center
+  user-select     none
+  cursor          pointer
+  vertical-align  middle
+  transition      border-color 0.2s ease-in
+  text-decoration none
 
   &:focus
     outline    none
     box-shadow none
 
   &:hover
-    color        #0075e1
-    border-color #0075e1
-    background   #00172c
+    color           #0075e1
+    border-color    #0075e1
+    background      #00172c
+    text-decoration none
 
   &.btn-question
     width 130px
+
+  & + .btn
+    margin-left 12px
+
+  & + span
+   padding 0 16px
