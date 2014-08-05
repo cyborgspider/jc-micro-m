@@ -32,7 +32,7 @@ pageLoad = ->
 
 
   #If iOS, remove the video
-  if agentID 
+  if agentID
     #$('head').append('<link href="css/ios.css" rel="stylesheet" />')
     $('#video').remove()
 
@@ -120,7 +120,7 @@ sectionSizer = ()->
         $section.height((winHeight/2) + (navHeight))
 
       else
-        $section.height(winHeight) 
+        $section.height(winHeight)
 
 
 #Testimony Transitions

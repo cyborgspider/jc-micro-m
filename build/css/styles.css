@@ -49,8 +49,8 @@ nav.top{top:30px}
 #main-nav > .nav > li > a{color:#6b94bb;text-transform:uppercase;text-decoration:none}
 #main-nav > .nav > li:hover > a,#main-nav > .nav > li.active > a{color:#fff}
 #main-nav > .nav > li.active > a{font-weight:700}
-#home{background:url("../img/bg-los-angeles.jpg") no-repeat center top transparent;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;padding:10% 0 0;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
-#main-intro-wrap{margin:0 auto;padding:50px 0 80px;width:980px}
+#home{background:url("../img/bg-los-angeles.jpg") no-repeat center top transparent;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;padding:15% 0 0;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0)}
+#main-intro-wrap{margin:0 auto;padding:0;width:980px}
 #main-intro-header{text-align:center;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);}
 #main-intro-header h1{font-size:45px}
 #main-intro-header h2{font-size:22px}
@@ -79,7 +79,7 @@ nav.top{top:30px}
 .btn:hover{color:#0075e1;border-color:#0075e1;background:#00172c}
 .btn.btn-question{width:130px}
 .quote-slider{position:relative;max-width:720px;margin:0 auto}
-.quote{text-align:center;color:#0083fc;position:absolute;}
+.quote{text-align:center;color:#6b94bb;position:absolute;}
 .quote.active .quote-text,.quote.active .quote-attr{opacity:1;-ms-filter:none;filter:none}
 .quote-text{font:italic 18px/32px 'Georgia',serif;position:relative;padding:30px 0;margin-bottom:40px;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);top:0;-webkit-transition:opacity 0.4s ease-in;-moz-transition:opacity 0.4s ease-in;-o-transition:opacity 0.4s ease-in;-ms-transition:opacity 0.4s ease-in;transition:opacity 0.4s ease-in;}
 .quote-text:before{content:"\201C";font-size:92px;position:absolute;top:0;margin-left:-24px;left:50%}
