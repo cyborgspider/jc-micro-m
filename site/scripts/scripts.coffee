@@ -2,8 +2,8 @@
 $win        = $(window)
 winHeight   = $win.height()
 winWidth    = $win.width()
-deviceAgent = navigator.userAgent.toLowerCase()
-agentID     = deviceAgent.match(/(iphone|ipod|ipad)/)
+#deviceAgent = navigator.userAgent.toLowerCase()
+#agentID     = deviceAgent.match(/(iphone|ipod|ipad)/)
 
 #Place all functions to init the page inside pageLoad
 pageLoad = ->
@@ -21,7 +21,7 @@ pageLoad = ->
   #Empty form
   $('#contact-form')[0].reset()
 
-  sectionSizer()
+  #sectionSizer()
   animateHeroBG()
   slideTestimony()
   checkTop()
@@ -30,16 +30,10 @@ pageLoad = ->
   $('#contact-form').parsley()
   startQuiz($('#intro-slider'))
 
-
-  #If iOS, remove the video
-  if agentID
-    #$('head').append('<link href="css/ios.css" rel="stylesheet" />')
-    $('#video').remove()
-
 #Check for window resizing
-$win.resize ->
-  if $win.width() == winWidth
-    sectionSizer()
+# $win.resize ->
+#   if $win.width() == winWidth
+#     sectionSizer()
 
 #Contact Form
 $("textarea").focus ->
@@ -94,33 +88,6 @@ navHandler = ()->
     e.preventDefault()
     $(section).velocity 'scroll'
     #window.location.hash = section
-
-#Section Height Setter
-sectionSizer = ()->
-  #Calculate the window height minus the nav bar height
-  winHeight = $win.height()
-  navHeight = $('nav').height()
-
-  $('.section').each ->
-      $section = $(@)
-      $sectionChildren = $section.children('.section-child')
-      $sectionChildSmall = $sectionChildren.filter('.section-child-small')
-
-      if $sectionChildren.length
-        #If there are subsections, set a height for each subsection divided by total window height
-        $subSectionHeight = winHeight/$sectionChildren.length
-
-        #We must also account for the nav height gap, so we subtract the nav height to even things out
-        $sectionChildren.height($subSectionHeight - (navHeight/$sectionChildren.length))
-        # console.log $section.attr('id') + ' has ' + $sectionChildSmall.length + ' smaller sections.'
-
-      if $section.hasClass('section-half') and $sectionChildren.length
-        $section.height((winHeight*0.6) + (navHeight))
-        $sectionChildren.height(winHeight*0.6)
-
-      else
-        $section.height(winHeight)
-
 
 #Testimony Transitions
 slideTestimony = () ->

@@ -1,5 +1,5 @@
 (function() {
-  var $win, agentID, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, deviceAgent, navHandler, pageLoad, sectionSizer, slideTestimony, startQuiz, startSlider, winHeight, winWidth;
+  var $win, animateHeroBG, animateIntroBar, animateIntroSlider, animateMainIntroHeader, checkTop, contactButtonLoader, navHandler, pageLoad, slideTestimony, startQuiz, startSlider, winHeight, winWidth;
 
   $win = $(window);
 
@@ -7,31 +7,17 @@
 
   winWidth = $win.width();
 
-  deviceAgent = navigator.userAgent.toLowerCase();
-
-  agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
-
   pageLoad = function() {
     $('html,body').velocity('scroll');
     $('#contact-form')[0].reset();
-    sectionSizer();
     animateHeroBG();
     slideTestimony();
     checkTop();
     navHandler();
     contactButtonLoader();
     $('#contact-form').parsley();
-    startQuiz($('#intro-slider'));
-    if (agentID) {
-      return $('#video').remove();
-    }
+    return startQuiz($('#intro-slider'));
   };
-
-  $win.resize(function() {
-    if ($win.width() === winWidth) {
-      return sectionSizer();
-    }
-  });
 
   $("textarea").focus(function() {
     if ($(this).val() === 'Type your message here...') {
@@ -93,28 +79,6 @@
       section = $(this).attr('href');
       e.preventDefault();
       return $(section).velocity('scroll');
-    });
-  };
-
-  sectionSizer = function() {
-    var navHeight;
-    winHeight = $win.height();
-    navHeight = $('nav').height();
-    return $('.section').each(function() {
-      var $section, $sectionChildSmall, $sectionChildren, $subSectionHeight;
-      $section = $(this);
-      $sectionChildren = $section.children('.section-child');
-      $sectionChildSmall = $sectionChildren.filter('.section-child-small');
-      if ($sectionChildren.length) {
-        $subSectionHeight = winHeight / $sectionChildren.length;
-        $sectionChildren.height($subSectionHeight - (navHeight / $sectionChildren.length));
-      }
-      if ($section.hasClass('section-half') && $sectionChildren.length) {
-        $section.height((winHeight * 0.6) + navHeight);
-        return $sectionChildren.height(winHeight * 0.6);
-      } else {
-        return $section.height(winHeight);
-      }
     });
   };
 
