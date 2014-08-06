@@ -251,14 +251,14 @@ startQuiz = ($container) ->
   goNext = () ->
     i++
     $slides.removeClass 'active'
-    $slides.eq(i).addClass 'active'  
+    $slides.eq(i).addClass 'active'
 
     $slideIndices.removeClass 'active'
-    $slideIndices.eq(i).addClass 'active'  
+    $slideIndices.eq(i).addClass 'active'
 
   $slideIndexContainer.on 'click', 'li', gotoSlide
   $nextArrow.on 'click', goNext
-    
+
 #Waypoints
 #This didn't work very well. TODO: Make it better, I still prefer over ScrollSpy
 #http://imakewebthings.com/jquery-waypoints/#get-started
