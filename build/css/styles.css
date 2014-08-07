@@ -1,5 +1,5 @@
 body{-webkit-font-smoothing:antialiased;background:#004e96;color:#fff;font:16px/1.5 "Source Sans Pro","Arial",sans-serif;font-weight:400;position:relative}
-@media (min-width:1600){.container{width:1368px}
+@media only screen and (min-width:1600px){.container{width:1368px}
 }.container-fluid,.container{padding:0}
 h1,h2,h3,h4{font-weight:700;margin:0}
 p{margin-bottom:14px}
@@ -37,19 +37,21 @@ p{margin-bottom:14px}
 .content-item .fa-twitter{font-size:38px;color:#6b94bb;float:left;margin-right:20px}
 .section{clear:both;}
 .section:before{content:'';display:block;margin-top:-75px;padding-top:75px}
+.hotfix{width:1380px}
 .top-bar{height:30px;line-height:30px;}
 .top-bar a{color:#fff;float:right}
 #logo{background:url("../img/jc-logo.png") no-repeat;width:186px;height:45px;display:block;text-indent:-9999px;float:left;margin:14px 0 0;}
 #logo.active,#logo:hover{background-position:0 100%}
-nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:fixed;top:0;left:0;right:0;z-index:10;-webkit-transition:top 0.4s ease-out;-moz-transition:top 0.4s ease-out;-o-transition:top 0.4s ease-out;-ms-transition:top 0.4s ease-out;transition:top 0.4s ease-out;}
+nav{background:#00274b;height:75px;-webkit-transition:background 0.2s ease-in-out;-moz-transition:background 0.2s ease-in-out;-o-transition:background 0.2s ease-in-out;-ms-transition:background 0.2s ease-in-out;transition:background 0.2s ease-in-out;position:absolute;top:0;left:0;right:0;z-index:10;-webkit-transition:top 0.4s ease-out;-moz-transition:top 0.4s ease-out;-o-transition:top 0.4s ease-out;-ms-transition:top 0.4s ease-out;transition:top 0.4s ease-out;}
 nav.top{top:30px}
 #main-nav{float:right;margin:28px 0 0;}
 #main-nav > .nav{margin:0;padding:0;}
-#main-nav > .nav > li{display:inline-block;margin-right:10px;}
+#main-nav > .nav > li{display:inline-block;margin-right:20px;}
 #main-nav > .nav > li:last-child{margin-right:0}
 #main-nav > .nav > li > a{color:#6b94bb;text-transform:uppercase;text-decoration:none}
 #main-nav > .nav > li:hover > a,#main-nav > .nav > li.active > a{color:#fff}
 #main-nav > .nav > li.active > a{font-weight:700}
+.nav-container{width:1168px;margin:0 auto;height:75px}
 #home{background:url("../img/bg-los-angeles.jpg") no-repeat center top transparent;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;padding:240px 0 0;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);position:relative}
 #main-intro-wrap{margin:0 auto;width:100%;position:relative;top:30%;-webkit-transform:translateY(-30%);-moz-transform:translateY(-30%);-o-transform:translateY(-30%);-ms-transform:translateY(-30%);transform:translateY(-30%)}
 #main-intro-header{text-align:center;opacity:0;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter:alpha(opacity=0);}

@@ -22,7 +22,7 @@ nav
   background $blue-dark
   height     75px
   transition background 0.2s ease-in-out
-  position   fixed
+  position   absolute
   top        0
   left       0
   right      0
@@ -42,7 +42,7 @@ nav
 
     & > li
       display      inline-block
-      margin-right 10px
+      margin-right 20px
 
       &:last-child
         margin-right 0
@@ -59,4 +59,9 @@ nav
       &.active
         & > a
           font-weight 700
+
+.nav-container
+  width  1168px
+  margin 0 auto
+  height 75px
 
